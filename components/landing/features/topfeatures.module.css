@@ -1,0 +1,187 @@
+.projectSection {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.projectSection .projectSingleBoxarea {
+  position: relative;
+  z-index: 2;
+}
+
+.projectSection .projectSingleBoxarea .slickDots {
+  position: absolute;
+  top: 0;
+  left: -100px;
+}
+
+@media (max-width: 767px) {
+  .projectSection .projectSingleBoxarea .slickDots {
+    position: relative;
+    left: 0;
+    text-align: center;
+    margin-top: 30px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .projectSection .projectSingleBoxarea .slickDots {
+    position: relative;
+    left: 0;
+    text-align: center;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .projectSection .projectSingleBoxarea .slickDots li {
+    display: inline-block;
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .projectSection .projectSingleBoxarea .slickDots li {
+    display: inline-block;
+    text-align: center;
+  }
+}
+
+.projectSection .projectSingleBoxarea .slickDots li.slickActive button {
+  background:  color-mix(in srgb, var(--rv-secondary) 10%, transparent);
+  color: var(--ztc-text-text-1);
+  transition: all 0.4s;
+}
+
+.projectSection .projectSingleBoxarea .slickDots li button {
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 60px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--rv-primary) 10%, transparent);;
+  color: var(--ztc-text-text-4);
+  transition: all 0.4s;
+  border: none;
+  outline: none;
+  color: var(--ztc-text-text-4);
+  font-family: var(--ztc-family-font1);
+  font-size: var(--ztc-font-size-font-s20);
+  font-style: normal;
+  font-weight: var(--ztc-weight-semibold);
+  line-height: 20px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 767px) {
+  .projectSection .projectSingleBoxarea .slickDots li button {
+    margin: 0 6px 0 0;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .projectSection .projectSingleBoxarea .slickDots li button {
+    margin: 0 12px 0 0;
+  }
+}
+
+.projectSection .projectSingleBoxarea .slickDots li button:hover {
+  background:  color-mix(in srgb, var(--rv-secondary) 10%, transparent);;
+  color: var(--rv-primary);
+  transition: all 0.4s;
+}
+
+.projectSection .projectSingleBoxarea .projectBoxarea {
+  border-radius: 8px;
+  background: var(--ztc-bg-bg-1);
+  box-shadow: 0px 0px 40px 0px rgba(0, 0, 0, 0.09);
+  padding: 48px;
+  border: 1px solid rgba(0, 0, 0, 0.09);
+}
+
+@media (max-width: 767px) {
+  .projectSection .projectSingleBoxarea .projectBoxarea {
+    padding: 24px;
+  }
+}
+
+.projectSection .projectSingleBoxarea .projectBoxarea h2 a {
+  color: var(--rv-primary);
+  font-family: var(--ztc-family-font1);
+  font-size: var(--ztc-font-size-font-s24);
+  font-style: normal;
+  font-weight: var(--ztc-weight-semibold);
+  line-height: 32px;
+  display: inline-block;
+  transition: all 0.4s;
+}
+
+.projectSection .projectSingleBoxarea .projectBoxarea a {
+  color: var(--rv-primary);
+  font-family: var(--ztc-family-font1);
+  font-size: var(--ztc-font-size-font-s18);
+  font-style: normal;
+  font-weight: var(--ztc-weight-bold);
+  line-height: 18px;
+  display: inline-block;
+  transition: all 0.4s;
+}
+
+.projectSection .projectSingleBoxarea .projectBoxarea a:hover {
+  color: var(--ztc-text-text-4);
+  transition: all 0.4s;
+}
+
+.projectSection .projectSingleBoxarea .projectBoxarea a i {
+  margin-left: 4px;
+  transform: rotate(-45deg);
+}
+
+.projectSection .allImages .imagesArea {
+  position: relative;
+  z-index: 1;
+}
+
+.projectSection .allImages .imagesArea .img1 {
+  max-width: 700px;
+  position: relative;
+  left: -100px;
+  z-index: -1;
+}
+
+@media (max-width: 767px) {
+  .projectSection .allImages .imagesArea .img1 {
+    max-width: 100%;
+    left: 0;
+    margin-top: 30px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .projectSection .allImages .imagesArea .img1 {
+    max-width: 100%;
+    left: 0;
+    margin-top: 30px;
+  }
+}
+
+.projectSection .allImages .imagesArea .img1 img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.projectSection .allImages .imagesArea .elements7 {
+  position: absolute;
+  bottom: 30px;
+  right: -60px;
+}
+
+
+@media (max-width: 767px) {
+  .projectSection .allImages .imagesArea .elements7 {
+   display: none;
+  }
+}

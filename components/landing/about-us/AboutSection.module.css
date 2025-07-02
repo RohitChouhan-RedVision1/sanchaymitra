@@ -1,0 +1,92 @@
+.aboutSectionArea {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.aboutSectionArea .aboutImagesArea {
+    position: relative;
+    z-index: 1;
+    padding: 0 50px 0 0;
+}
+
+@media (max-width: 767px) {
+    .aboutSectionArea .aboutImagesArea {
+        padding: 0;
+        margin-bottom: 30px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .aboutSectionArea .aboutImagesArea {
+        padding: 0;
+        margin-bottom: 30px;
+    }
+}
+
+.aboutSectionArea .aboutImagesArea .img1 img {
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.aboutSectionArea .aboutImagesArea .elements6 {
+    position: absolute;
+    bottom: 30px;
+    left: -165px;
+}
+
+@media (max-width: 767px) {
+    .aboutSectionArea .aboutImagesArea .elements6 {
+        display: none;
+    }
+}
+
+.aboutSectionArea .aboutHeading .peraBox {
+    background: color-mix(in srgb, var(--rv-primary) 10%, transparent);;
+    position: relative;
+    z-index: 1;
+    border-radius: 8px;
+    padding: 20px;
+    transition: all 0.4s;
+}
+
+.aboutSectionArea .aboutHeading .peraBox:hover {
+    transform: translateY(-5px);
+    transition: all 0.4s;
+}
+
+.aboutSectionArea .aboutHeading .peraBox:hover .icons {
+    transform: rotateY(-180deg);
+    transition: all 0.4s;
+}
+
+.aboutSectionArea .aboutHeading .peraBox .icons {
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    line-height: 60px;
+    border-radius: 8px;
+    display: inline-block;
+    transition: all 0.4s;
+    background: var(--ztc-bg-bg-3);
+    position: absolute;
+    transition: all 0.4s;
+}
+
+.aboutSectionArea .aboutHeading .peraBox .text {
+    padding-left: 80px;
+}
+
+.aboutSectionArea .aboutHeading .peraBox .text a {
+    color: var(--ztc-text-text-2);
+    font-family: var(--ztc-family-font1);
+    font-size: var(--ztc-font-size-font-s20);
+    font-style: normal;
+    font-weight: var(--ztc-weight-semibold);
+    line-height: 20px;
+    display: inline-block;
+    transition: all 0.4s;
+}

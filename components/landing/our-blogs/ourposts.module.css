@@ -1,0 +1,175 @@
+.blogArea {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.blogArea .blogItem {
+    position: relative;
+    z-index: 1;
+    border-radius: 4px;
+    transition: all 0.4s;
+    margin-bottom: 30px;
+}
+
+.blogArea .blogItem:hover .blogThumb img {
+    transform: scale(1.1) rotate(4deg);
+    transition: all 0.4s;
+    filter: grayscale(1);
+}
+
+.blogArea .blogItem .blogThumb {
+    overflow: hidden;
+    transition: all 0.4s;
+    position: relative;
+    border-radius: 8px;
+}
+
+.blogArea .blogItem .blogThumb img {
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    transition: all 0.4s;
+    border-radius: 8px;
+}
+
+.blogArea .blogItem .blogContent {
+    position: relative;
+    z-index: 2;
+    border-radius: 8px;
+    background: var(--ztc-text-text-1);
+    box-shadow: 0px 4px 48px 0px rgba(0, 0, 0, 0.09);
+    padding: 24px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: -100px;
+}
+
+@media (max-width: 767px) {
+    .blogArea .blogItem .blogContent {
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 0;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .blogArea .blogItem .blogContent {
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 0;
+    }
+}
+
+.blogArea .blogItem .blogContent .blogMeta ul {
+    display: flex;
+}
+
+.blogArea .blogItem .blogContent .blogMeta ul li {
+    display: flex;
+}
+
+.blogArea .blogItem .blogContent .blogMeta ul li a {
+    color: var(--ztc-text-text-3);
+    font-family: var(--ztc-family-font1);
+    font-size: var(--ztc-font-size-font-s18);
+    font-style: normal;
+    font-weight: var(--ztc-weight-medium);
+    line-height: 18px;
+    display: flex;
+    transition: all 0.4s;
+    align-items: center;
+}
+
+@media (max-width: 767px) {
+    .blogArea .blogItem .blogContent .blogMeta ul li a {
+        font-size: var(--ztc-font-size-font-s16);
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .blogArea .blogItem .blogContent .blogMeta ul li a {
+        font-size: var(--ztc-font-size-font-s16);
+    }
+}
+
+.blogArea .blogItem .blogContent .blogMeta ul li a svg {
+    height: 22px;
+    width: 22px;
+    -o-object-fit: contain;
+    object-fit: contain;
+    margin: -5px 4px 0 0;
+}
+
+.blogArea .blogItem .blogContent .blogMeta ul li a span {
+    margin: 0 8px;
+    display: flex;
+    transition: all 0.4s;
+    opacity: 10%;
+}
+
+@media (max-width: 767px) {
+    .blogArea .blogItem .blogContent .blogMeta ul li a span {
+        margin: 0;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .blogArea .blogItem .blogContent .blogMeta ul li a span {
+        margin: 0;
+    }
+}
+
+.blogArea .blogItem .blogContent .blogTitle a {
+    color: var(--ztc-text-text-2);
+    font-family: var(--ztc-family-font1);
+    font-size: var(--ztc-font-size-font-s24);
+    font-style: normal;
+    font-weight: var(--ztc-weight-semibold);
+    line-height: 30px;
+    display: flex;
+    transition: all 0.4s;
+}
+
+.blogArea .blogItem .blogContent .blogTitle a:hover {
+    color: var(--ztc-text-text-4);
+    transition: all 0.4s;
+}
+
+.blogArea .blogItem .blogContent p {
+    color: var(--ztc-text-text-3);
+    font-family: var(--ztc-family-font1);
+    font-size: var(--ztc-font-size-font-s16);
+    font-style: normal;
+    font-weight: var(--ztc-weight-regular);
+    line-height: 26px;
+    display: flex;
+}
+
+.blogArea .blogItem .blogContent .blogIcon a {
+    color: var(--ztc-text-text-2);
+    font-family: var(--ztc-family-font1);
+    font-size: var(--ztc-font-size-font-s18);
+    font-style: normal;
+    font-weight: var(--ztc-weight-semibold);
+    line-height: 18px;
+    display: flex;
+    transition: all 0.4s;
+}
+
+.blogArea .blogItem .blogContent .blogIcon a svg {
+    margin-left: 4px;
+    transform: rotate(-45deg);
+    transition: all 0.4s;
+}
+
+.blogArea .blogItem .blogContent .blogIcon a:hover {
+    color: var(--ztc-text-text-4);
+    transition: all 0.4s;
+}
+
+.blogArea .blogItem .blogContent .blogIcon a:hover svg {
+    transform: rotate(0);
+    transition: all 0.4s;
+}

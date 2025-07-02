@@ -1,0 +1,164 @@
+.footer1SectionArea {
+    background: #EDF2F7;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.footer1SectionArea .footerLogo img {
+    width: 164px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    text-align: start;
+}
+
+.footer1SectionArea .footerLogo p {
+    color: var(--ztc-text-text-3);
+    font-family: var(--ztc-family-font2);
+    font-size: var(--ztc-font-size-font-s18);
+    font-weight: var(--ztc-weight-regular);
+    font-style: normal;
+    line-height: 28px;
+}
+
+.footer1SectionArea .footerLogo ul li {
+    display: inline-block;
+}
+
+.footer1SectionArea .footerLogo ul li a svg {
+    border-radius: 165px;
+    background: var(--rv-white);
+    display: inline-block;
+    transition: all 0.4s;
+    height: 46px;
+    width: 46px;
+    text-align: center;
+    line-height: 36px;
+    color: var(--rv-primary);
+    border-radius: 50%;
+    margin: 0 8px 0 0;
+    padding: 10px;
+}
+.footer1SectionArea .footerLogo ul li a svg:hover {
+    border-radius: 165px;
+    background: var(--rv-secondary);
+    display: inline-block;
+    transition: all 0.4s;
+    height: 46px;
+    width: 46px;
+    text-align: center;
+    line-height: 36px;
+    color: var(--rv-white);
+    border-radius: 50%;
+    margin: 0 8px 0 0;
+    padding: 10px;
+}
+
+.footer1SectionArea .footerWidget.firstPadding {
+    padding-left: 70px;
+}
+
+@media (max-width: 767px) {
+    .footer1SectionArea .footerWidget.firstPadding {
+        padding-left: 0;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .footer1SectionArea .footerWidget.firstPadding {
+        padding-left: 0;
+    }
+}
+
+.footer1SectionArea .footerWidget h3 {
+    color: var(--ztc-text-text-2);
+    font-family: var(--ztc-family-font1);
+    font-size: var(--ztc-font-size-font-s24);
+    font-style: normal;
+    font-weight: var(--ztc-weight-semibold);
+    line-height: 24px;
+    letter-spacing: -0.48px;
+}
+
+.footer1SectionArea .footerWidget ul li a {
+    color: var(--ztc-text-text-3);
+    font-family: var(--ztc-family-font2);
+    font-size: var(--ztc-font-size-font-s16);
+    font-style: normal;
+    font-weight: var(--ztc-weight-medium);
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    transition: all 0.4s;
+    padding-top: 24px;
+}
+
+.footer1SectionArea .footerWidget ul li a img {
+    margin: 0 8px 0 0;
+}
+
+.footer1SectionArea .footerWidget ul li a:hover {
+    color: var(--ztc-text-text-4);
+    transition: all 0.4s;
+}
+
+.footer1SectionArea .footerWidget .footerImg {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.footer1SectionArea .footerWidget .footerImg:hover .icons {
+    top: 50%;
+    transition: all 0.6s;
+}
+
+.footer1SectionArea .footerWidget .footerImg img {
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.footer1SectionArea .footerWidget .footerImg .icons {
+    position: absolute;
+    left: 50%;
+    margin-left: -13px;
+    top: -70px;
+    margin-top: -13px;
+    transition: all 0.6s;
+}
+
+.footer1SectionArea .footerWidget .footerImg .icons a svg {
+    height: 26px;
+    width: 26px;
+    display: inline-block;
+    transition: all 0.4s;
+    border-radius: 4px;
+    background: var(--ztc-bg-bg-3);
+    text-align: center;
+    line-height: 26px;
+    font-size: var(--ztc-font-size-font-s16);
+    color: var(--ztc-text-text-1);
+}
+
+.footer1SectionArea .copyrightArea p {
+    color: var(--ztc-text-text-3);
+    /* text-align: center; */
+    font-family: var(--ztc-family-font2);
+    font-size: var(--ztc-font-size-font-s16);
+    font-style: normal;
+    font-weight: var(--ztc-weight-regular);
+    line-height: 18px;
+    padding: 24px 0 32px;
+}
+
+
+.footer1SectionArea .copyrightArea {
+  display: flex;
+  flex-direction: row; /* or just remove this line as 'row' is default */
+  justify-content: space-between;
+  border-top: 1px solid #CAD2D6;
+}
