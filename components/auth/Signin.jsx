@@ -83,8 +83,8 @@ export default function Signin({siteData}) {
             <div className="mx-auto max-w-xs">
               <form onSubmit={handleSubmit}>
                 <input
-                  className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                  type="email"
+                  className="w-full px-8 py-2  font-medium  border-b border-gray-300 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                  type="text"
                   placeholder="Email"
                   value={provider.username}
                   onChange={(e) =>
@@ -94,7 +94,7 @@ export default function Signin({siteData}) {
 
                 <div className="relative mt-5">
                   <input
-                    className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                    className="w-full px-8 py-4  font-medium  border-b border-gray-300 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                     type={showPassword ? "text" : "password"}
                     placeholder="Password"
                     value={provider.password}

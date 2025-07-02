@@ -91,7 +91,7 @@ export default function ContactForm({ sitedata }) {
           name="username"
           type="text"
           placeholder="Name"
-          className="w-full p-2 border border-gray-300 rounded"
+          className="w-full p-2 border-b border-gray-300 rounded"
           value={formData.username}
           onChange={handleChange}
           required
@@ -102,7 +102,7 @@ export default function ContactForm({ sitedata }) {
           name="mobile"
           type="tel"
           placeholder="Mobile"
-          className="w-full p-2 border border-gray-300 rounded"
+          className="w-full p-2 border-b border-gray-300 rounded"
           value={formData.mobile}
           onChange={handleChange}
           required
@@ -113,7 +113,7 @@ export default function ContactForm({ sitedata }) {
           name="email"
           type="email"
           placeholder="Email"
-          className="w-full p-2 border border-gray-300 rounded"
+          className="w-full p-2 border-b border-gray-300 rounded"
           value={formData.email}
           onChange={handleChange}
           required
@@ -123,7 +123,7 @@ export default function ContactForm({ sitedata }) {
         <textarea
           name="message"
           placeholder="Message"
-          className="w-full p-2 border border-gray-300 rounded h-32"
+          className="w-full p-2 border-b border-gray-300 rounded h-32"
           value={formData.message}
           onChange={handleChange}
           required

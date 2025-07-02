@@ -103,7 +103,7 @@ const FinancialHealth = () => {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-8 rounded py-3 px-6 bg-white"
+          className="space-y-4 rounded py-3 px-6 bg-white"
         >
           <div className="flex justify-between items-center">
             <h1 className="font-medium text-xl">
@@ -120,11 +120,11 @@ const FinancialHealth = () => {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input
+                  <input
                     placeholder="User Name"
                     {...field}
                     aria-label="User Name"
-                    className="border-2 border-gray-500"
+                    className="  border-b  border-gray-300 w-full p-2"
                   />
                 </FormControl>
                 <FormMessage />
@@ -139,11 +139,11 @@ const FinancialHealth = () => {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input
+                  <input
                     placeholder="Mobile"
                     {...field}
                     aria-label="Mobile Number"
-                    className="border-2 border-gray-500"
+                    className="  border-b border-gray-300 w-full p-2"
                   />
                 </FormControl>
                 <FormMessage />
@@ -158,12 +158,12 @@ const FinancialHealth = () => {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input
+                  <input
                     type="email"
                     placeholder="Email"
                     {...field}
                     aria-label="Email"
-                    className="border-2 border-gray-500"
+                    className="  border-b  border-gray-300 w-full p-2"
                   />
                 </FormControl>
                 <FormMessage />
@@ -181,7 +181,7 @@ const FinancialHealth = () => {
                   <textarea
                     placeholder="Message"
                     {...field}
-                    className="w-full border-2 border-gray-500 p-1 rounded"
+                    className="w-full  border-b border-gray-300 p-1 rounded"
                     aria-label="Message"
                   />
                 </FormControl>
@@ -323,12 +323,12 @@ Here are the answers you provided:
     return { message: "Excellent", color: "text-green-500" };
   };
   return (
-    <div className="main_section">
+    <div className="py-[150px]">
     <div className="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg">
       <Toaster />
       {isModalOpen && (
         <div className="fixed inset-0 bg-[#0e314da3] bg-opacity-60 z-[5000] flex justify-center">
-          <div className="p-3 rounded-lg shadow-lg w-[30rem] bg-white mt-10 mb-2 max-h-[600px]">
+          <div className="p-3 rounded-lg shadow-lg w-[30rem] bg-white mt-10 mb-2 max-h-[500px]">
             <InquiryForm />
           </div>
         </div>
