@@ -26,7 +26,7 @@ const HeroSection = () => {
                     <div data-aos="zoon-in" data-aos-duration="1000">
                         <div className={styles.heroImagesArea}>
                             <div className={styles.img1}>
-                                <Image src="/all-images/hero/hero-img1.webp" alt="" width={300} height={300} />
+                                <img src="/all-images/hero/hero-img1.webp" alt=""  />
                             </div>
                              
                             <img src="/elements/elements2.svg" className={`${styles.elements2} aniamtion-key-4`} alt="" />
