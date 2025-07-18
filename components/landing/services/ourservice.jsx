@@ -8,6 +8,7 @@ import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 const OurServices = ({ services }) => {
+    console.log(services)
     return (
         <div className={`${styles.serviceSectionArea} main_section`} style={{ backgroundImage: 'url(/all-images/bg/bg2.png)', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
             <div className="max-w-screen-xl mx-auto">
@@ -45,14 +46,14 @@ const OurServices = ({ services }) => {
                             <SwiperSlide key={index}>
                                 <div className={styles.serviceBoxarea}>
                                     <div className={styles.img1}>
-                                        <img src="/all-images/service/service-img1.png" alt="" />
+                                        <img src={`/all-images/service/${service?.imageSrc}`} alt="" />
                                         <div className={styles.arrow}>
                                             <Link href={`/service/${service?.link}`}><ArrowRight /></Link>
                                         </div>
                                     </div>
                                     <div className={styles.contentArea}>
                                         <div className={styles.icons}>
-                                            <img src="/icons/service1.svg" alt="" />
+                                            <img src={`/icons/${index+1}.svg`} alt="" />
                                         </div>
                                         <div className="space24"></div>
                                         <Link href={`/service/${service?.link}`}>{service?.name}</Link>

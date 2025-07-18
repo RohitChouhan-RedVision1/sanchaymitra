@@ -140,7 +140,7 @@ const features = [
           </p>
           <Link
                         href="/login"
-                        className="vl-btn1"
+                        className="vl-btn6"
                       >
                         Explore funds now
                       </Link>

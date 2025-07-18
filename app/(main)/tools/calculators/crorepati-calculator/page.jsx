@@ -36,7 +36,7 @@ export default function CrorepatiPlanningCalculator() {
                 const res = await axios.get(`${process.env.NEXT_PUBLIC_DATA_API}/api/calculators/crorepati-calculator?currentAge=${currentAge}&crorepatiAge=${crorepatiStartAge}&targetedWealth=${targetWealth}&currentSavings=${currentSavings}&expectedReturn=${expectedReturn}&inflationRate=${inflationRate}&apikey=${process.env.NEXT_PUBLIC_API_KEY}`);
                 if (res.status === 200) {
                     const data = res.data
-                    console.log(data)
+                  
                     const futureTargetWealth = data.futureTargetWealth;
                     const savingsGrowth = data.savingsGrowth;
                     const finalTargetWealth = data.finalTargetWealth;

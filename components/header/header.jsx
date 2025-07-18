@@ -120,7 +120,7 @@ const Navbar = ({ siteData, services }) => {
                 <div className={`${styles.heroBtn} hidden lg:block text-end`}>
                   <div className={styles.headBtn}>
                     <div className={styles.btnArea}>
-                      <Link href="/login" className="vl-btn1">
+                      <Link href="/login" className="vl-btn6">
                         Login
                       </Link>
                     </div>
@@ -129,7 +129,7 @@ const Navbar = ({ siteData, services }) => {
                         <img src="/icons/phone.svg" alt="Phone" />
                       </span>
                       <span className={styles.text}>
-                        <span>Hotline 24/7</span>
+                        {/* <span>Hotline 24/7</span> */}
                         <Link href={`tel:${siteData.mobile}`}>
                           {siteData.mobile}
                         </Link>
@@ -226,7 +226,7 @@ const Navbar = ({ siteData, services }) => {
           <Link href="/contact-us" onClick={() => setIsMobileMenuOpen(false)}>
             Contact Us
           </Link>
-           <Link href="/login" className="vl-btn1">
+           <Link href="/login" className="vl-btn6">
                         Login
                       </Link>
         </nav>

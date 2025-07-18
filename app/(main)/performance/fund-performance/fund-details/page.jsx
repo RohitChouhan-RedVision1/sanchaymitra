@@ -48,7 +48,6 @@ export default function Page() {
       );
       if (response.status === 200) {
         setGraphData(response.data);
-        console.log("Graph Data:", response.data);
       }
     } catch (error) {
       console.error("Error fetching graph data:", error);
@@ -57,14 +56,13 @@ export default function Page() {
  
   useEffect(() => {
      const encrypted = localStorage.getItem("encryptedFundPerormanceData");
-        console.log(encrypted,SECRET_KEY)
         if (!encrypted) return;
         const bytes = CryptoJS.AES.decrypt(encrypted, SECRET_KEY);
             const decrypted = bytes.toString(CryptoJS.enc.Utf8);
-            console.log(decrypted,SECRET_KEY)
+
             if (!decrypted) throw new Error("Decryption failed");
             const data = JSON.parse(decrypted);
-            console.log(data,SECRET_KEY)
+    
             const isExpired = Date.now() - data.timestamp > 2 * 60 * 60 * 1000;
 
       if (isExpired) {

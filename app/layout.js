@@ -1,13 +1,31 @@
-import { Montaga } from "next/font/google";
+import { Poppins,Playfair_Display,Noto_Serif,Roboto } from "next/font/google";
 import "./globals.css";
 import RenewalPopup from "@/components/renewalPopup";
 import { SubscriptionProvider } from "@/context/SubscriptionContext";
 import Script from "next/script";
 
-const poppins = Montaga({
+const poppins = Poppins({
   subsets: ["latin"],
   display: "swap",
-  weight: ["400"], // You can adjust the weights as needed
+  weight: ["300", "400", "700", "900"],
+  variable: "--font-poppins", // define your custom CSS variable name here
+});
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-playfair",
+});
+const notoSerif = Noto_Serif({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-noto-serif", // optional custom CSS variable
+});
+
+const roboto = Roboto({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["300", "400", "500", "700"], // Add weights as needed
+  variable: "--font-roboto", // optional custom CSS variable name
 });
 
 export const dynamic = "force-dynamic";
@@ -27,10 +45,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={` ${poppins.variable}`}>
+      <body className={`${poppins.variable} ${playfair.variable} ${notoSerif.variable} ${roboto.variable} `}>
         <SubscriptionProvider>
           {/* <RenewalPopup /> */}
-          <div className="bg-white font-sans">
+          <div className="bg-white">
             {children}
           </div>
         </SubscriptionProvider>

@@ -65,7 +65,6 @@ const TeamForm = () => {
   });
 
   const onSubmit = async (data) => {
-    console.log("Submitting...", data);
     setLoading(true);
 
     const formData = new FormData();

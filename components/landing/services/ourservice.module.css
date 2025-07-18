@@ -184,7 +184,7 @@
 .serviceSectionArea .serviceSingleSlider .serviceBoxarea .contentArea a {
     color: var(--ztc-text-text-2);
     text-align: center;
-    font-family: var(--ztc-family-font1);
+    font-family: var(--default-font);
     font-size: var(--ztc-font-size-font-s22);
     font-style: normal;
     font-weight: var(--ztc-weight-semibold);

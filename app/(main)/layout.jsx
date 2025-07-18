@@ -10,6 +10,7 @@ import AnimatedCursor from "react-animated-cursor"
 // import UpdatePopup from "@/components/updatepopup";
 
 export default async function Layout({ children }) {
+    
     const siteData= await getSiteData();
     const services = await getServiceData();
     const SocialMedia= await getSocialMedia()

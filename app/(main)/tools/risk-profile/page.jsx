@@ -56,7 +56,6 @@ const RiskProfile = () => {
     const fetchQuestions = async () => {
         try {
             const response = await axios.get(`/api/risk-questions`);
-            console.log(response)
             if (response.status == 200) {
                 setQuestions(response.data)
             }

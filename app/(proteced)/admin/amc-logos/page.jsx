@@ -51,7 +51,6 @@ const AmcsLogo = () => {
     }
   };
 
-  console.log(packageData)
 
 const fetchAllLogos = async () => {
   try {
@@ -84,7 +83,6 @@ useEffect(() => {
   }, [category]);
 
 
-  console.log(allAmcsLogos,"dajdjishdn")
   const handleAddCategory = async () => {
     try {
       const response = await axios.post("/api/category/", { category });
@@ -104,7 +102,7 @@ useEffect(() => {
   };
 
   const handleStatusChange = async (id, addisstatus) => {
-    console.log(id,addisstatus)
+
     try {
       const response = await axios.put(`/api/amc-logos/change-status/${id}`, { addisstatus: !addisstatus });
       if (response.status === 200) {
@@ -227,7 +225,6 @@ useEffect(() => {
             <div className="flex gap-x-2">
               {packageData.map((item, index) => (
                 <div className="mx-1" key={index}>
-                   { console.log(item.title)}
                   <button className="text-white px-3 py-1 bg-[--rv-primary] rounded" onClick={() => setLogoCategory(item._id)}>
                     {item.title}
                   </button>

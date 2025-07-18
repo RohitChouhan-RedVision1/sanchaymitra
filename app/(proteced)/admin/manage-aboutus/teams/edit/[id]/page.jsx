@@ -56,7 +56,7 @@ export function InputForm({ postId }) {
         .then(res => {
 
           const data = res.data.teamMember;
-          console.log(data)
+       
           form.setValue("name", data.name);
           form.setValue("designation", data.designation);
           form.setValue("experience", data.experience || 0);

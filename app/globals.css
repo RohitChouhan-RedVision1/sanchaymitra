@@ -2,6 +2,216 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --rv-primary: #2769b3;
+    --rv-secondary: #5ba913;
+    --rv-third: #f4761f;
+    --rv-bg-primary: #2769b3;
+    --rv-bg-secondary: #5ba913;
+    --rv-bg-third: #f4761f;
+    --rv-white: #ffffff;
+    --rv-black:#040303;
+    --primary-color: #2769b3;
+    --secondary-color: #5ba913;
+    --text-color: #808080;
+    --accent-color: #2769b3;
+    --dark-color: #004050;
+    --white-color: #FFFFFF;
+    --divider-color: #F3F3F3;
+    --dark-divider-color: #FFFFFF1A;
+    --error-color: rgb(230, 87, 87);
+    --default-font: 'Roboto'; 
+    --font-noto-serif: 'Noto Serif', serif;
+
+    --ztc-text-text-2: #061D19;
+    --ztc-text-text-3: #333535;
+    --ztc-text-text-4: #0666e5;
+    --ztc-text-text-5: #0C3A30;
+    --ztc-text-text-6: #0666e5;
+    --ztc-text-text-7: #50514E;
+    --ztc-text-text-8: #032530;
+    --ztc-text-text-9: #F4D445;
+    --rv-primary0: #484F51;
+    --rv-primary1: #100235;
+    --rv-primary2: #3D3D42;
+    --rv-primary3: #2E0797;
+    --rv-primary4: #0D0E1F;
+    --rv-primary5: #5A5B5B;
+    --rv-primary6: #FB8500;
+    --ztc-bg-bg-1: #fff;
+    --ztc-bg-bg-2: #061D19;
+    --ztc-bg-bg-3: #0666e5;
+    --ztc-bg-bg-4: #0666e5;
+    --ztc-bg-bg-5: #0666e5;
+    --ztc-bg-bg-6: #032530;
+    --ztc-bg-bg-7: #F4D445;
+    --ztc-bg-bg-8: #100235;
+    --ztc-bg-bg-9: var(--04-home-page-maincolors, linear-gradient(90deg, #2E0797 0%, #726EFC 100%));
+    --ztc-bg-bg-10: #0D0E1F;
+    --ztc-bg-bg-11: #FB8500;
+    --ztc-border-border-1: #E5E7EB;
+    --ztc-border-border-2: #dfdcdc;
+    --ztc-font-size-font-s10: 10px;
+    --ztc-font-size-font-s12: 12px;
+    --ztc-font-size-font-s14: 14px;
+    --ztc-font-size-font-s16: 16px;
+    --ztc-font-size-font-s18: 18px;
+    --ztc-font-size-font-s20: 20px;
+    --ztc-font-size-font-s22: 22px;
+    --ztc-font-size-font-s24: 24px;
+    --ztc-font-size-font-s26: 26px;
+    --ztc-font-size-font-s28: 28px;
+    --ztc-font-size-font-s30: 30px;
+    --ztc-font-size-font-s32: 32px;
+    --ztc-font-size-font-s34: 34px;
+    --ztc-font-size-font-s36: 36px;
+    --ztc-font-size-font-s38: 38px;
+    --ztc-font-size-font-s40: 40px;
+    --ztc-font-size-font-s42: 42px;
+    --ztc-font-size-font-s44: 44px;
+    --ztc-font-size-font-s46: 46px;
+    --ztc-font-size-font-s48: 48px;
+    --ztc-font-size-font-s50: 50px;
+    --ztc-font-size-font-s52: 52px;
+    --ztc-font-size-font-s54: 54px;
+    --ztc-font-size-font-s56: 56px;
+    --ztc-font-size-font-s58: 58px;
+    --ztc-font-size-font-s60: 60px;
+    --ztc-font-size-font-s62: 62px;
+    --ztc-font-size-font-s64: 64px;
+    --ztc-font-size-font-s66: 66px;
+    --ztc-font-size-font-s68: 68px;
+    --ztc-font-size-font-s70: 70px;
+    --ztc-font-size-font-s10: 10px;
+    --ztc-font-size-font-s12: 12px;
+    --ztc-font-size-font-s14: 14px;
+    --ztc-font-size-font-s16: 16px;
+    --ztc-font-size-font-s18: 18px;
+    --ztc-font-size-font-s20: 20px;
+    --ztc-font-size-font-s22: 22px;
+    --ztc-font-size-font-s24: 24px;
+    --ztc-font-size-font-s26: 26px;
+    --ztc-font-size-font-s28: 28px;
+    --ztc-font-size-font-s30: 30px;
+    --ztc-font-size-font-s32: 32px;
+    --ztc-font-size-font-s34: 34px;
+    --ztc-font-size-font-s36: 36px;
+    --ztc-font-size-font-s38: 38px;
+    --ztc-font-size-font-s40: 40px;
+    --ztc-font-size-font-s42: 42px;
+    --ztc-font-size-font-s44: 44px;
+    --ztc-font-size-font-s46: 46px;
+    --ztc-font-size-font-s48: 48px;
+    --ztc-font-size-font-s50: 50px;
+    --ztc-font-size-font-s52: 52px;
+    --ztc-font-size-font-s54: 54px;
+    --ztc-font-size-font-s56: 56px;
+    --ztc-font-size-font-s58: 58px;
+    --ztc-font-size-font-s60: 60px;
+    --ztc-font-size-font-s62: 62px;
+    --ztc-font-size-font-s64: 64px;
+    --ztc-font-size-font-s66: 66px;
+    --ztc-font-size-font-s68: 68px;
+    --ztc-font-size-font-s70: 70px;
+    --ztc-specing-height6: 6px;
+    --ztc-specing-height8: 8px;
+    --ztc-specing-height10: 10px;
+    --ztc-specing-height12: 12px;
+    --ztc-specing-height14: 114px;
+    --ztc-specing-height16: 16px;
+    --ztc-specing-height18: 18px;
+    --ztc-specing-height20: 20px;
+    --ztc-specing-height22: 22px;
+    --ztc-specing-height24: 24px;
+    --ztc-specing-height26: 26px;
+    --ztc-specing-height28: 28px;
+    --ztc-specing-height30: 30px;
+    --ztc-specing-height32: 32px;
+    --ztc-specing-height34: 34px;
+    --ztc-specing-height36: 36px;
+    --ztc-specing-height38: 38px;
+    --ztc-specing-height40: 40px;
+    --ztc-specing-height42: 42px;
+    --ztc-specing-height44: 44px;
+    --ztc-specing-height46: 46px;
+    --ztc-specing-height48: 48px;
+    --ztc-specing-height50: 50px;
+    --ztc-specing-height52: 52px;
+    --ztc-specing-height54: 54px;
+    --ztc-specing-height56: 56px;
+    --ztc-specing-height58: 58px;
+    --ztc-specing-height60: 60px;
+    --ztc-specing-height70: 70px;
+    --ztc-specing-height80: 80px;
+    --ztc-specing-height90: 90px;
+    --ztc-specing-height100: 100px;
+    --ztc-specing-height110: 110px;
+    --ztc-specing-height120: 120px;
+    --ztc-specing-height130: 130px;
+    --ztc-weight-regular: 400;
+    --ztc-weight-medium: 500;
+    --ztc-weight-semibold: 600;
+    --ztc-weight-bold: 700;
+    --ztc-weight-black: 800;
+
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+
+
 a,
 a:hover {
   text-decoration: none;
@@ -87,6 +297,7 @@ ul li {
 h2,
 p {
   margin-bottom: 0;
+  font-family: var(--default-font);
 }
 
 h1,
@@ -96,6 +307,7 @@ h4,
 h5,
 h6 {
   margin-bottom: 0;
+  font-family: var(--default-font);
 }
 
 
@@ -499,7 +711,7 @@ img {
   background: color-mix(in srgb, var(--rv-primary) 10%, transparent);;
   display: inline-block;
   color: var(--ztc-text-text-4);
-  font-family: var(--ztc-family-font1);
+  font-family: var(--default-font);
   font-size: var(--ztc-font-size-font-s16);
   font-style: normal;
   font-weight: var(--ztc-weight-semibold);
@@ -510,7 +722,7 @@ img {
 
 .heading1 h2 {
   color: var(--ztc-text-text-2);
-  font-family: var(--ztc-family-font1);
+  font-family: var(--default-font);
   font-size: var(--ztc-font-size-font-s44);
   font-style: normal;
   font-weight: var(--ztc-weight-semibold);
@@ -528,7 +740,7 @@ img {
 
 .heading1 p {
   color: var(--ztc-text-text-3);
-  font-family: var(--ztc-family-font1);
+  font-family: var(--default-font);
   font-size: var(--ztc-font-size-font-s16);
   font-style: normal;
   font-weight: var(--regular);
@@ -539,7 +751,7 @@ img {
   border-radius: 8px;
   background: rgba(12, 58, 48, 0.1);
   color: var(--ztc-text-text-5);
-  font-family: var(--ztc-family-font1);
+  font-family: var(--default-font);
   font-size: var(--ztc-font-size-font-s18);
   font-style: normal;
   font-weight: var(--ztc-weight-regular);
@@ -550,7 +762,7 @@ img {
 
 .heading2 h2 {
   color: var(--ztc-text-text-5);
-  font-family: var(--ztc-family-font1);
+  font-family: var(--default-font);
   font-size: var(--ztc-font-size-font-s44);
   font-style: normal;
   font-weight: var(--ztc-weight-semibold);
@@ -568,7 +780,7 @@ img {
 
 .heading2 p {
   color: var(--ztc-text-text-7);
-  font-family: var(--ztc-family-font1);
+  font-family: var(--default-font);
   font-size: var(--ztc-font-size-font-s16);
   font-style: normal;
   font-weight: var(--regular);
@@ -579,7 +791,7 @@ img {
   border-radius: 8px;
   background: rgba(3, 37, 48, 0.1);
   color: var(--ztc-text-text-8);
-  font-family: var(--ztc-family-font1);
+  font-family: var(--default-font);
   font-size: var(--ztc-font-size-font-s16);
   font-style: normal;
   font-weight: var(--ztc-weight-semibold);
@@ -591,7 +803,7 @@ img {
 
 .heading3 h2 {
   color: var(--ztc-text-text-8);
-  font-family: var(--ztc-family-font1);
+  font-family: var(--default-font);
   font-size: var(--ztc-font-size-font-s44);
   font-style: normal;
   font-weight: var(--ztc-weight-semibold);
@@ -609,7 +821,7 @@ img {
 
 .heading3 p {
   color: var(--rv-primary0);
-  font-family: var(--ztc-family-font1);
+  font-family: var(--default-font);
   font-size: var(--ztc-font-size-font-s16);
   font-style: normal;
   font-weight: var(--regular);
@@ -622,7 +834,7 @@ img {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: var(--ztc-text-text-8);
-  font-family: var(--ztc-family-font1);
+  font-family: var(--default-font);
   font-size: var(--ztc-font-size-font-s16);
   font-style: normal;
   font-weight: var(--ztc-weight-semibold);
@@ -649,7 +861,7 @@ img {
 
 .heading4 h2 {
   color: var(--rv-primary1);
-  font-family: var(--ztc-family-font1);
+  font-family: var(--default-font);
   font-size: var(--ztc-font-size-font-s44);
   font-style: normal;
   font-weight: var(--ztc-weight-semibold);
@@ -667,7 +879,7 @@ img {
 
 .heading4 p {
   color: var(--rv-primary2);
-  font-family: var(--ztc-family-font1);
+  font-family: var(--default-font);
   font-size: var(--ztc-font-size-font-s16);
   font-style: normal;
   font-weight: var(--regular);
@@ -678,7 +890,7 @@ img {
   border-radius: 8px;
   background: rgba(251, 133, 0, 0.1);
   color: var(--rv-primary6);
-  font-family: var(--ztc-family-font1);
+  font-family: var(--default-font);
   font-size: var(--ztc-font-size-font-s16);
   font-style: normal;
   font-weight: var(--ztc-weight-medium);
@@ -690,7 +902,7 @@ img {
 
 .heading5 h2 {
   color: var(--rv-primary4);
-  font-family: var(--ztc-family-font1);
+  font-family: var(--default-font);
   font-size: var(--ztc-font-size-font-s44);
   font-style: normal;
   font-weight: var(--ztc-weight-semibold);
@@ -708,7 +920,7 @@ img {
 
 .heading5 p {
   color: var(--rv-primary5);
-  font-family: var(--ztc-family-font1);
+  font-family: var(--default-font);
   font-size: var(--ztc-font-size-font-s16);
   font-style: normal;
   font-weight: var(--regular);
@@ -723,7 +935,7 @@ img {
   color: var(--rv-white);
   background: var(--ztc-bg-bg-3);
   z-index: 1;
-  font-family: var(--ztc-family-font1);
+  font-family: var(--default-font);
   font-size: var(--ztc-font-size-font-s16);
   line-height: 16px;
   font-weight: var(--ztc-weight-semibold);
@@ -782,7 +994,7 @@ img {
 
 .vl-btn2 {
   color: var(--ztc-text-text-5);
-  font-family: var(--ztc-family-font1);
+  font-family: var(--default-font);
   font-size: var(--ztc-font-size-font-s18);
   font-style: normal;
   font-weight: var(--ztc-weight-semibold);
@@ -837,7 +1049,7 @@ img {
 
 .vl-btn3 {
   color: var(--ztc-text-text-8);
-  font-family: var(--ztc-family-font1);
+  font-family: var(--default-font);
   font-size: var(--ztc-font-size-font-s18);
   font-style: normal;
   font-weight: var(--ztc-weight-semibold);
@@ -891,7 +1103,7 @@ img {
 
 .vl-btn4 {
   color: var(--rv-primary);
-  font-family: var(--ztc-family-font1);
+  font-family: var(--default-font);
   font-size: var(--ztc-font-size-font-s16);
   font-style: normal;
   font-weight: var(--ztc-weight-semibold);
@@ -989,7 +1201,7 @@ img {
 
 .vl-btn5 .text {
   color: var(--rv-primary);
-  font-family: var(--ztc-family-font1);
+  font-family: var(--default-font);
   font-size: var(--ztc-font-size-font-s20);
   font-style: normal;
   font-weight: var(--ztc-weight-semibold);
@@ -1015,6 +1227,27 @@ img {
   display: inline-block;
   font-size: var(--ztc-font-size-font-s24);
 }
+
+
+
+.vl-btn6 {
+  position: relative;
+  display: inline-block;
+  padding: 18px 24px;
+  border-radius: 8px;
+  color: var(--rv-white);
+  background: var(--rv-secondary);
+  z-index: 1;
+  font-family: var(--default-font);
+  font-size: var(--ztc-font-size-font-s16);
+  line-height: 16px;
+  font-weight: var(--ztc-weight-semibold);
+  transition: all 0.4s;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+
 
 /*============= COMMON CSS AREA ENDS===============*/
 .image-anime {
@@ -1082,7 +1315,7 @@ img {
 .pagination-area ul li a {
   color: var(--ztc-text-text-4);
   text-align: center;
-  font-family: var(--ztc-family-font1);
+  font-family: var(--default-font);
   font-size: var(--ztc-font-size-font-s20);
   font-style: normal;
   font-weight: var(--ztc-weight-semibold);
@@ -2402,212 +2635,7 @@ img {
   }
 }
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
-    --rv-primary: #2769b3;
-    --rv-secondary: #5ba913;
-    --rv-third: #f4761f;
-    --rv-bg-primary: #2769b3;
-    --rv-bg-secondary: #5ba913;
-    --rv-bg-third: #f4761f;
-    --rv-white: #ffffff;
-    --rv-black:#040303;
-    --primary-color: #2769b3;
-    --secondary-color: #5ba913;
-    --text-color: #808080;
-    --accent-color: #2769b3;
-    --dark-color: #004050;
-    --white-color: #FFFFFF;
-    --divider-color: #F3F3F3;
-    --dark-divider-color: #FFFFFF1A;
-    --error-color: rgb(230, 87, 87);
-    --default-font: "DM Sans", sans-serif;
 
-    --ztc-text-text-2: #061D19;
-    --ztc-text-text-3: #333535;
-    --ztc-text-text-4: #0666e5;
-    --ztc-text-text-5: #0C3A30;
-    --ztc-text-text-6: #0666e5;
-    --ztc-text-text-7: #50514E;
-    --ztc-text-text-8: #032530;
-    --ztc-text-text-9: #F4D445;
-    --rv-primary0: #484F51;
-    --rv-primary1: #100235;
-    --rv-primary2: #3D3D42;
-    --rv-primary3: #2E0797;
-    --rv-primary4: #0D0E1F;
-    --rv-primary5: #5A5B5B;
-    --rv-primary6: #FB8500;
-    --ztc-bg-bg-1: #fff;
-    --ztc-bg-bg-2: #061D19;
-    --ztc-bg-bg-3: #0666e5;
-    --ztc-bg-bg-4: #0666e5;
-    --ztc-bg-bg-5: #0666e5;
-    --ztc-bg-bg-6: #032530;
-    --ztc-bg-bg-7: #F4D445;
-    --ztc-bg-bg-8: #100235;
-    --ztc-bg-bg-9: var(--04-home-page-maincolors, linear-gradient(90deg, #2E0797 0%, #726EFC 100%));
-    --ztc-bg-bg-10: #0D0E1F;
-    --ztc-bg-bg-11: #FB8500;
-    --ztc-border-border-1: #E5E7EB;
-    --ztc-border-border-2: #dfdcdc;
-    --ztc-font-size-font-s10: 10px;
-    --ztc-font-size-font-s12: 12px;
-    --ztc-font-size-font-s14: 14px;
-    --ztc-font-size-font-s16: 16px;
-    --ztc-font-size-font-s18: 18px;
-    --ztc-font-size-font-s20: 20px;
-    --ztc-font-size-font-s22: 22px;
-    --ztc-font-size-font-s24: 24px;
-    --ztc-font-size-font-s26: 26px;
-    --ztc-font-size-font-s28: 28px;
-    --ztc-font-size-font-s30: 30px;
-    --ztc-font-size-font-s32: 32px;
-    --ztc-font-size-font-s34: 34px;
-    --ztc-font-size-font-s36: 36px;
-    --ztc-font-size-font-s38: 38px;
-    --ztc-font-size-font-s40: 40px;
-    --ztc-font-size-font-s42: 42px;
-    --ztc-font-size-font-s44: 44px;
-    --ztc-font-size-font-s46: 46px;
-    --ztc-font-size-font-s48: 48px;
-    --ztc-font-size-font-s50: 50px;
-    --ztc-font-size-font-s52: 52px;
-    --ztc-font-size-font-s54: 54px;
-    --ztc-font-size-font-s56: 56px;
-    --ztc-font-size-font-s58: 58px;
-    --ztc-font-size-font-s60: 60px;
-    --ztc-font-size-font-s62: 62px;
-    --ztc-font-size-font-s64: 64px;
-    --ztc-font-size-font-s66: 66px;
-    --ztc-font-size-font-s68: 68px;
-    --ztc-font-size-font-s70: 70px;
-    --ztc-font-size-font-s10: 10px;
-    --ztc-font-size-font-s12: 12px;
-    --ztc-font-size-font-s14: 14px;
-    --ztc-font-size-font-s16: 16px;
-    --ztc-font-size-font-s18: 18px;
-    --ztc-font-size-font-s20: 20px;
-    --ztc-font-size-font-s22: 22px;
-    --ztc-font-size-font-s24: 24px;
-    --ztc-font-size-font-s26: 26px;
-    --ztc-font-size-font-s28: 28px;
-    --ztc-font-size-font-s30: 30px;
-    --ztc-font-size-font-s32: 32px;
-    --ztc-font-size-font-s34: 34px;
-    --ztc-font-size-font-s36: 36px;
-    --ztc-font-size-font-s38: 38px;
-    --ztc-font-size-font-s40: 40px;
-    --ztc-font-size-font-s42: 42px;
-    --ztc-font-size-font-s44: 44px;
-    --ztc-font-size-font-s46: 46px;
-    --ztc-font-size-font-s48: 48px;
-    --ztc-font-size-font-s50: 50px;
-    --ztc-font-size-font-s52: 52px;
-    --ztc-font-size-font-s54: 54px;
-    --ztc-font-size-font-s56: 56px;
-    --ztc-font-size-font-s58: 58px;
-    --ztc-font-size-font-s60: 60px;
-    --ztc-font-size-font-s62: 62px;
-    --ztc-font-size-font-s64: 64px;
-    --ztc-font-size-font-s66: 66px;
-    --ztc-font-size-font-s68: 68px;
-    --ztc-font-size-font-s70: 70px;
-    --ztc-specing-height6: 6px;
-    --ztc-specing-height8: 8px;
-    --ztc-specing-height10: 10px;
-    --ztc-specing-height12: 12px;
-    --ztc-specing-height14: 114px;
-    --ztc-specing-height16: 16px;
-    --ztc-specing-height18: 18px;
-    --ztc-specing-height20: 20px;
-    --ztc-specing-height22: 22px;
-    --ztc-specing-height24: 24px;
-    --ztc-specing-height26: 26px;
-    --ztc-specing-height28: 28px;
-    --ztc-specing-height30: 30px;
-    --ztc-specing-height32: 32px;
-    --ztc-specing-height34: 34px;
-    --ztc-specing-height36: 36px;
-    --ztc-specing-height38: 38px;
-    --ztc-specing-height40: 40px;
-    --ztc-specing-height42: 42px;
-    --ztc-specing-height44: 44px;
-    --ztc-specing-height46: 46px;
-    --ztc-specing-height48: 48px;
-    --ztc-specing-height50: 50px;
-    --ztc-specing-height52: 52px;
-    --ztc-specing-height54: 54px;
-    --ztc-specing-height56: 56px;
-    --ztc-specing-height58: 58px;
-    --ztc-specing-height60: 60px;
-    --ztc-specing-height70: 70px;
-    --ztc-specing-height80: 80px;
-    --ztc-specing-height90: 90px;
-    --ztc-specing-height100: 100px;
-    --ztc-specing-height110: 110px;
-    --ztc-specing-height120: 120px;
-    --ztc-specing-height130: 130px;
-    --ztc-weight-regular: 400;
-    --ztc-weight-medium: 500;
-    --ztc-weight-semibold: 600;
-    --ztc-weight-bold: 700;
-    --ztc-weight-black: 800;
-
-  }
-
-  .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-  }
-}
 
 @layer base {
   * {
@@ -2616,5 +2644,6 @@ img {
 
   body {
     @apply bg-background text-foreground;
+    font-family: var(--default-font);
   }
 }

@@ -202,7 +202,7 @@ const FinancialHealth = () => {
           </div>
 
           {/* Submit Button */}
-          <button className="text-white vl-btn1" type="submit" disabled={loading}>
+          <button className="text-white vl-btn6" type="submit" disabled={loading}>
             {!loading ? "Submit" : "Loading..."}
           </button>
         </form>

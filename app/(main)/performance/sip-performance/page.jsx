@@ -200,8 +200,6 @@ export default function Page() {
         }
       );
 
-      console.log("Response:", response.data);
-      console.log("Data field:", response.data.data);
 
       if (response.data.data == null || Object.keys(response.data.data).length === 0) { // Checks for null or undefined
         setGraphData(false);
@@ -226,7 +224,7 @@ export default function Page() {
   };
 
   const handlePdf = async (result, title, startsipDate, valuationDate) => {
-    console.log(result)
+
     generatePDF(result, title, startsipDate, valuationDate, "graphId", siteData,);
   };
 
@@ -304,7 +302,7 @@ export default function Page() {
                         <p className="font-semibold text-gray-700">
                           Select Equity Funds
                         </p>
-                        {console.log(assetCategory)}
+              
                         <div className="mt-2 border border-gray-300 p-3 rounded h-60 overflow-y-auto">
                           {/* Equity Funds checkboxes here */}
                           {assetCategory
@@ -630,7 +628,7 @@ export default function Page() {
                   </div>
                 )
               )}
-              {console.log(error)}
+              
               {error && !graphData && (
                 <div className="">
                   Data Not Found

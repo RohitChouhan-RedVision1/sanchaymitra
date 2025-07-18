@@ -31,7 +31,6 @@ export default function Page() {
         try {
             const res = await axios.get(`${process.env.NEXT_PUBLIC_DATA_API}/api/calculators/stepup-calculator?monthlyInvestment=${monthlyInvestment}&investmentDuration=${investmentDuration}&expectedReturn=${expectedReturn}&annualStepupPercentage=${stepUpPercentage}&apikey=${process.env.NEXT_PUBLIC_API_KEY}`);
             if (res.status === 200) {
-                console.log(res)
                 const data = res.data
                 const totalInvestment = data.totalInvestment;
                 const futureValue = data.futureValue;

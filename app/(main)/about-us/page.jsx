@@ -16,7 +16,6 @@ import Image from "next/image";
     const missionvission= await getmissionvission();
     const Aboutus=await getAboutus();
     const TeamsSection=await getAboutusteams()
-    console.log(missionvission,Aboutus,TeamsSection)
     function createMarkup(item) {
     return { __html: item };
   }
@@ -120,7 +119,7 @@ import Image from "next/image";
                 innovative solutions, and unmatched dedication.
               </p>
               <Link href="/contact-us" className="text-white mt-4 cursor-pointer">
-                <button className="vl-btn1">
+                <button className="vl-btn6">
                   Contact Us
                 </button>
               </Link>

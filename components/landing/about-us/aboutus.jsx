@@ -58,7 +58,7 @@ export default function AboutSection({siteData}) {
                             </div>
                             <div class="space32"></div>
                             <div class="btn-area1">
-                                <Link href="/about-us" class="vl-btn1">Learn More</Link>
+                                <Link href="/about-us" class="vl-btn6">Learn More</Link>
                             </div>
                         </div>
                     </div>

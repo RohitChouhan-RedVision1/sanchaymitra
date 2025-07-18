@@ -144,7 +144,7 @@ export default function ContactForm({ sitedata }) {
       <div>
         <button
           type="submit"
-          className="vl-btn1"
+          className="vl-btn6"
           disabled={loading}
         >
           {loading ? "Submitting..." : "Submit"}

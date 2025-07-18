@@ -30,7 +30,7 @@
   display: inline-block;
   transition: all 0.4s;
   color: var(--rv-primary);
-  font-family: var(--ztc-family-font1);
+  font-family: var(--default-font);
   font-size: var(--ztc-font-size-font-s20);
   font-style: normal;
   font-weight: var(--ztc-weight-medium);
@@ -47,7 +47,7 @@
 
 .heroSectionArea .headingArea h1 {
   color: var(--rv-primary);
-  font-family: var(--ztc-family-font1);
+  font-family: var(--default-font);
   font-size: var(--ztc-font-size-font-s64);
   font-style: normal;
   font-weight: var(--ztc-weight-semibold);
@@ -65,7 +65,7 @@
 
 .heroSectionArea .headingArea p {
   color: #0766e5d9;
-  font-family: var(--ztc-family-font1);
+  font-family: var(--default-font);
   font-size: var(--ztc-font-size-font-s18);
   font-style: normal;
   font-weight: var(--ztc-weight-regular);
@@ -80,7 +80,7 @@
   color: var(--ztc-text-text-1);
   background: var(--ztc-bg-bg-3);
   z-index: 1;
-  font-family: var(--ztc-family-font1);
+  font-family: var(--default-font);
   font-size: var(--ztc-font-size-font-s16);
   line-height: 16px;
   font-weight: var(--ztc-weight-semibold);

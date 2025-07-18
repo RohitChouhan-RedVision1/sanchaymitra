@@ -7,6 +7,7 @@ import "swiper/css/autoplay";
 import styles from './ourposts.module.css';
 
 export function OurPosts({ vidios }) {
+  console.log(vidios)
   return (
     <div className={`${styles.blogArea} main_section`}>
       <div className="max-w-screen-xl mx-auto">
@@ -41,25 +42,21 @@ export function OurPosts({ vidios }) {
           className="mySwiper mt-10"
         >
           {vidios?.map((video, index) => (
-            <SwiperSlide key={index}>
-              <a
-                href={video.videoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                title={video.title}
-              >
-                <div className={styles.blogItem}>
-                  <div className={`${styles.blogThumb} image-anime`}>
-                    <img
-                      src={video.image.url}
-                      alt={video.title}
-                      className="w-full h-auto rounded"
-                    />
-                  </div>
-                </div>
-              </a>
-            </SwiperSlide>
-          ))}
+  <SwiperSlide key={index}>
+    <div className={styles.blogItem}>
+      <div className={`${styles.blogThumb} image-anime`}>
+        <iframe
+          src={video.embedUrl}
+          title={video.title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          className="w-full aspect-video rounded"
+        />
+      </div>
+    </div>
+  </SwiperSlide>
+))}
+
         </Swiper>
       </div>
     </div>

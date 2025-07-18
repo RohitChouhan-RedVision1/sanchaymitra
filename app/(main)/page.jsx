@@ -18,7 +18,6 @@ export default async function Page({ children }) {
         const services = await getServiceData();
         const SocialMedia= await getSocialMedia()
         const testimonials=await getTestimonials()
-        const amclogos= await getAddisLogos()
         const vidios= await getVidios()
           const arn=await getArn();
     return (
@@ -39,7 +38,7 @@ export default async function Page({ children }) {
                 <Testimonials testimonials={testimonials}/>
                 {/* <OurHistory /> */}
                 <OurPosts vidios={vidios} />
-                <SubscribCard amclogos={amclogos} />
+                <SubscribCard  />
             </main>
         </div>
     );

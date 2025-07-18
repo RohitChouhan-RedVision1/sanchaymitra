@@ -32,7 +32,6 @@ export default function PrivacyPolicy() {
     useEffect(() => { fetchPolicy(); }, []);
     useEffect(() => { fetchdata(); }, []);
 
-    console.log(data)
 
    function createMarkup() {
         const highlightedText = data
@@ -57,8 +56,26 @@ export default function PrivacyPolicy() {
           </h1>
         </div>
       </div>
-                                <div className="text-gray-700 max-w-screen-xl mx-auto main_section">
+                                {/* <div className="text-gray-700 max-w-screen-xl mx-auto main_section">
             <p dangerouslySetInnerHTML={createMarkup()} />
+        </div> */}
+
+           <div className="text-gray-700 max-w-screen-xl mx-auto main_section">
+            <p>Mutual Fund investments are subject to market risks, read all 
+scheme related documents carefully. The NAVs of the schemes may go up or down 
+depending upon the factors and forces affecting the securities market including the 
+fluctuations in the interest rates. The past performance of the mutual funds is not 
+necessarily indicative of future performance of the schemes. The Mutual Fund is not 
+guaranteeing or assuring any dividend under any of the schemes and the same is 
+subject to the availability and adequacy distributable surplus.
+<br/> <br />
+Sanchaymitra Financial Services Pvt. Ltd. makes no warranties or representations, 
+express or implied, on products offered through the platform of Sanchaymitra 
+Financial Services Pvt. Ltd.. It accepts no liability for any damages or losses, however, 
+caused, in connection with the use of, or on the reliance of its product or related 
+services. Terms and conditions of the website are applicable. Investments in 
+Securities markets are subject to market risks, read all the related documents 
+carefully before investing.</p>
         </div>
         </div>
       

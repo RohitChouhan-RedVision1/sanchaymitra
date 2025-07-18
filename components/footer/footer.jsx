@@ -1,5 +1,4 @@
-"use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   FaFacebook,
   FaInstagram,
@@ -13,7 +12,7 @@ import { FaTwitter, FaWhatsapp } from "react-icons/fa";
 import Image from "next/image";
 
 const Footer = ({ siteData, services, SocialMedia,arn }) => {
-  console.log(siteData);
+
   const socialIconMap = {
     Facebook: <FaFacebook />,
     Instagram: <FaInstagram />,
@@ -40,14 +39,15 @@ const Footer = ({ siteData, services, SocialMedia,arn }) => {
               </p>
               <div className="space24"></div>
               <ul className="grid grid-cols-6">
-                {SocialMedia?.map((item, index) => (
-                  <li key={index}>
-                    <Link href={item.url} target="_blank">
-                      {socialIconMap[item.title] ?? null}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+  {SocialMedia?.filter((item) => !item.isHidden).map((item, index) => (
+    <li key={index}>
+      <Link href={item.url} target="_blank">
+        {socialIconMap[item.title] ?? null}
+      </Link>
+    </li>
+  ))}
+</ul>
+
             </div>
           </div>
           <div className="col-lg-3 col-md-6">
@@ -68,7 +68,10 @@ const Footer = ({ siteData, services, SocialMedia,arn }) => {
                 <li>
                   <Link href="/privacy-policy">Privacy Policy</Link>
                 </li>
-                <li>
+                  <li>
+                  <Link href="/terms-conditions">Terms Conditions</Link>
+                </li>
+                {/* <li>
                   <a
                     href="/AMFI_Code-of-Conduct1.pdf"
                     download
@@ -77,13 +80,13 @@ const Footer = ({ siteData, services, SocialMedia,arn }) => {
                   >
                     Code Of Conduct
                   </a>
-                </li>
+                </li> */}
 
-                <li>
+                {/* <li>
                   <Link href="/commission-disclosures">
                     Commission Disclosures
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>
@@ -126,17 +129,45 @@ const Footer = ({ siteData, services, SocialMedia,arn }) => {
                   </Link>
                 </li>
               </ul>
+              <div className="space4"></div>
+                 <div className="flex flex-col  gap-5 mt-10">
+          <Link  href="https://play.google.com/store/apps/details?id=com.sanchaymitra.sanchaymoney&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+          <button
+            className="text-white text-2xl font-semibold px-10 py-6 rounded-2xl cursor-pointer"
+            style={{
+              backgroundImage: `url(/Playstore.png)`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              minWidth: "200px", // Ensures button width increases
+            }}
+          >
+            
+          </button>
+        </Link>
+        {/* <Link  href={siteData?.appsappleurl} target="_blank" rel="noopener noreferrer" className="cursor-pointer ">
+          <button
+            className="text-white text-2xl font-semibold px-10 py-6 rounded-2xl cursor-pointer"
+            style={{
+              backgroundImage: `url(/Appstore.png)`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              minWidth: "200px", // Ensures button width increases
+            }}
+          >    
+          </button>
+        </Link> */}
+         </div>
             </div>
           </div>
         </div>
         <div className="space16"></div>
        
-        <div className="text-[var(--ztc-text-text-3)] py-3 md:px-1 px-4 text-center">
-          <p className="py-1 text-center">
-            {siteData?.websiteName} is an AMFI Registered Mutual Fund
-            Distributor.
+        <div className="text-[var(--ztc-text-text-3)]  md:px-1 px-4 text-center">
+          <p className=" text-center">
+            {siteData?.websiteName} <br /> AMFI Registered Mutual Fund
+            Distributor. <br />CIN : U66301MH2025PTC446688
           </p>
-          <p className="py-2 text-center">
+          {/* <p className="py-2 text-center">
             Disclaimer: Mutual Fund investments are subject to market risks,
             read all scheme related documents carefully. The NAVs of the schemes
             may go up or down depending upon the factors and forces affecting
@@ -156,11 +187,11 @@ const Footer = ({ siteData, services, SocialMedia,arn }) => {
             the website are applicable. Investments in Securities markets are
             subject to market risks, read all the related documents carefully
             before investing.
-          </p>
+          </p> */}
         </div>
          <div className="text-[var(--ztc-text-text-3)] py-3 flex gap-x-3 justify-center">
           <div className="flex gap-x-8 justify-center">
-            <div className="flex gap-x-3 justify-center">
+            <div className="flex gap-x-3 justify-center items-center">
               <Image
                 src={"/images/amfi-logo.jpg"}
                 width={100}
@@ -169,11 +200,38 @@ const Footer = ({ siteData, services, SocialMedia,arn }) => {
                 className="rounded"
               />
               <div>
-                <p>ARN - {arn[0]?.arn}</p>
-                <p>EUIN - {arn[0]?.euins[0]?.euin}</p>
+                <p>AMFI Reg No.{arn[0]?.arn} / EUIN - {arn[0]?.euins[0]?.euin} </p>
               </div>
             </div>
           </div>
+        </div>
+        <div className="text-[var(--ztc-text-text-3)]  md:px-1 px-4 text-center">
+          <p className=" text-center">
+            Disclaimer: Mutual funds and securities investments are subject to market risks. <br /> Past
+performance does not indicate future performance of the schemes of the fund. <br />
+Please read offer documents carefully before investing.
+          </p>
+          {/* <p className="py-2 text-center">
+            Disclaimer: Mutual Fund investments are subject to market risks,
+            read all scheme related documents carefully. The NAVs of the schemes
+            may go up or down depending upon the factors and forces affecting
+            the securities market including the fluctuations in the interest
+            rates. The past performance of the mutual funds is not necessarily
+            indicative of future performance of the schemes. The Mutual Fund is
+            not guaranteeing or assuring any dividend under any of the schemes
+            and the same is subject to the availability and adequacy
+            distributable surplus.
+          </p>
+          <p className="py-2 text-center">
+            {siteData?.websiteName} makes no warranties or representations,
+            express or implied, on products offered through the platform of{" "}
+            {siteData?.websiteName}. It accepts no liability for any damages or
+            losses, however, caused, in connection with the use of, or on the
+            reliance of its product or related services. Terms and conditions of
+            the website are applicable. Investments in Securities markets are
+            subject to market risks, read all the related documents carefully
+            before investing.
+          </p> */}
         </div>
         <div className="space16"></div>
         <div className="row">
@@ -184,7 +242,7 @@ const Footer = ({ siteData, services, SocialMedia,arn }) => {
                 © Copyright 2025 - <strong className="text-black bold">{siteData.websiteName}</strong>. All Right Reserved
               </p>
             </div>
-            <div >
+            <div className="hidden" >
              <Link
                 target="_blank"
                 href="https://www.redvisiontechnologies.com/"

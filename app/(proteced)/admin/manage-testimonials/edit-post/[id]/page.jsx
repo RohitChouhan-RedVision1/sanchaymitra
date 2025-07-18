@@ -56,7 +56,6 @@ export function InputForm({ postId }) {
                 });
         }
     }, [postId]);
-    console.log(previousImage)
 
     const onSubmit = async (data) => {
         setLoading(true);

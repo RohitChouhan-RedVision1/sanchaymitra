@@ -128,7 +128,7 @@ const Loans = async () => {
           <p className="text-gray-700 mb-4">
             Let {siteData?.websiteName} help you take the next step. Our simple, secure, and fast loan process is here to support your goals—whatever they may be.
           </p>
-          <Link href="/login" className="vl-btn1">
+          <Link href="/login" className="vl-btn6">
             Apply for a Loan
           </Link>
         </div>

@@ -85,13 +85,12 @@ const DataTableAboutUs = () => {
             console.error("Error deleting item:", error);
         }
     };
-console.log(data)
     const columns = [
         {
     accessorKey: "image",
     header: "Image",
     cell: ({ row }) => {
-      console.log(row.original); // ✅ Shows full row data in console
+
       const imageUrl = row.getValue("image")?.url || "/placeholder.jpg";
       return (
         <Image

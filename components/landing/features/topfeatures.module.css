@@ -65,7 +65,7 @@
   border: none;
   outline: none;
   color: var(--ztc-text-text-4);
-  font-family: var(--ztc-family-font1);
+  font-family: var(--default-font);
   font-size: var(--ztc-font-size-font-s20);
   font-style: normal;
   font-weight: var(--ztc-weight-semibold);
@@ -107,7 +107,7 @@
 
 .projectSection .projectSingleBoxarea .projectBoxarea h2 a {
   color: var(--rv-primary);
-  font-family: var(--ztc-family-font1);
+  font-family: var(--default-font);
   font-size: var(--ztc-font-size-font-s24);
   font-style: normal;
   font-weight: var(--ztc-weight-semibold);
@@ -118,7 +118,7 @@
 
 .projectSection .projectSingleBoxarea .projectBoxarea a {
   color: var(--rv-primary);
-  font-family: var(--ztc-family-font1);
+  font-family: var(--default-font);
   font-size: var(--ztc-font-size-font-s18);
   font-style: normal;
   font-weight: var(--ztc-weight-bold);

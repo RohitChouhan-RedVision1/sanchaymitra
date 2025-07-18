@@ -18,7 +18,7 @@ const HeroSection = () => {
                             <p data-aos="fade-left" data-aos-duration="1000">You Come First, Always - Its More Than Financial Success; It&apos;s About Your Well-being!</p>
                             <div class="space32"></div>
                             <div className={styles.btnArea}>
-                                <Link href="/service/mutual-funds" className={"vl-btn1"}>Explore Our Services</Link>
+                                <Link href="/service/mutual-funds" className={"vl-btn6"}>Explore Our Services</Link>
                                 <Link href="/contact-us" className={`${styles.vlBtn1} ${styles.btn2}`}>Join Us Today</Link>
                             </div>
                         </div>

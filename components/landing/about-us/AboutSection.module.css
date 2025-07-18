@@ -82,7 +82,7 @@
 
 .aboutSectionArea .aboutHeading .peraBox .text a {
     color: var(--ztc-text-text-2);
-    font-family: var(--ztc-family-font1);
+    font-family: var(--default-font);
     font-size: var(--ztc-font-size-font-s20);
     font-style: normal;
     font-weight: var(--ztc-weight-semibold);

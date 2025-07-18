@@ -39,7 +39,7 @@ export default function MarketUpdate() {
   };
  
   const fetchSchemes = async (category) => {
-    console.log("category:", category);
+
     setLoading(true);
     try {
       const response = await axios.get(
@@ -70,7 +70,7 @@ export default function MarketUpdate() {
       );
       if (response.status === 200) {
         setPerformanceData(response.data.data);
-        console.log("Schemes response:", response);
+
       }
     } catch (error) {
       console.error("Error fetching performance data:", error);
