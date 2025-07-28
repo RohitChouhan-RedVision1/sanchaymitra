@@ -6,7 +6,7 @@ import { NextResponse } from "next/server";
 export async function POST(req) {
   await ConnectDB();
   try {
-    const { categoryID,addisstatus } = await req.json();
+    const { categoryID } = await req.json();
 
     // Fetch source data
     const response = await axios.get("https://redvisionweb.com/api/amc-logo");

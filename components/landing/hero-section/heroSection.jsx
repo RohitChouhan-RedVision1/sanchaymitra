@@ -7,7 +7,7 @@ import Link from 'next/link';
 const HeroSection = () => {
     return (
         <div className={styles.heroSectionArea} style={{ backgroundImage: 'url(/all-images/bg/hero-bg1.png)', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
-            <div className="max-w-screen-xl mx-auto  pt-[100px]">
+            <div className="max-w-screen-xl mx-auto  pt-[100px] px-2 md:px-0">
                 <div class="grid lg:grid-cols-2 grid-cols-1 items-center justify-center">
                     <div>
                         <div className={styles.headingArea}>
@@ -17,9 +17,9 @@ const HeroSection = () => {
                             <div class="space20"></div>
                             <p data-aos="fade-left" data-aos-duration="1000">You Come First, Always - Its More Than Financial Success; It&apos;s About Your Well-being!</p>
                             <div class="space32"></div>
-                            <div className={styles.btnArea}>
-                                <Link href="/service/mutual-funds" className={"vl-btn6"}>Explore Our Services</Link>
-                                <Link href="/contact-us" className={`${styles.vlBtn1} ${styles.btn2}`}>Join Us Today</Link>
+                            <div className={`${styles.btnArea} flex flex-col md:flex-row  pr-4 md:pr-0 gap-4`}>
+                                <Link href="/service/mutual-funds" className={`${styles.vlBtn1} ${styles.btn2}`}>Explore Our Services</Link>
+                                <Link href="/contact-us" className={" vl-btn6"}>Join Us Today</Link>
                             </div>
                         </div>
                     </div>

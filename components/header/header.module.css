@@ -153,6 +153,9 @@
 	padding: 0 16px;
 	font-weight: var(--ztc-weight-medium);
 }
+.mainHeader .mainMenu ul>li>a>p {
+	font-size: var(--ztc-font-size-font-s18);
+}
 
 .mainHeader .mainMenu ul>li:hover a {
 	color: var(--ztc-text-text-4);

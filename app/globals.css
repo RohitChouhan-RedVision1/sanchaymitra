@@ -3,6 +3,17 @@
 @tailwind utilities;
 
 @layer base {
+  * {
+    @apply border-border;
+  }
+   html {
+    font-family: "Poppins", sans-serif;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--default-font);
+  }
   :root {
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
@@ -46,8 +57,7 @@
     --divider-color: #F3F3F3;
     --dark-divider-color: #FFFFFF1A;
     --error-color: rgb(230, 87, 87);
-    --default-font: 'Roboto'; 
-    --font-noto-serif: 'Noto Serif', serif;
+    --default-font: "Poppins", sans-serif;;
 
     --ztc-text-text-2: #061D19;
     --ztc-text-text-3: #333535;
@@ -182,6 +192,10 @@
 
   }
 
+  p{
+    font-size: 16px;
+  }
+
   .dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
@@ -209,6 +223,7 @@
     --chart-5: 340 75% 55%;
   }
 }
+
 
 
 
@@ -2629,21 +2644,3 @@ img {
 
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
-
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground;
-    font-family: var(--default-font);
-  }
-}

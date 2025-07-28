@@ -18,21 +18,21 @@ export default async function ContactUs() {
       <div className="flex flex-col  gap-4 overflow-hidden rounded-lg ">
         {/* Call Us */}
         <div className="flex flex-col md:flex-row gap-4 w-full justify-center items-center text-center">
-          <div className="bg-[var(--rv-primary)] text-white p-10 rounded-2xl shadow-md w-full md:w-1/2 flex flex-col items-center justify-center min-h-[210px]">
-            <Phone className="mb-2" size={24} />
-            <h3 className="text-lg font-medium mb-2">Call Us</h3>
-            <p className="text-sm"><Link href={`tel:${sitedata.mobile}`} >{sitedata.mobile}</Link></p>
+          <div className="bg-[var(--rv-primary)] text-white p-10 rounded-2xl shadow-md w-full md:w-1/2 flex flex-col items-center justify-center min-h-[250px]">
+            <Phone className="mb-2" size={36} />
+            <h3 className="text-2xl font-medium mb-2">Call Us</h3>
+            <p className="text-lg"><Link href={`tel:${sitedata.mobile}`} >{sitedata.mobile}</Link></p>
           </div>
 
-          <div className="bg-[var(--rv-primary)] text-white p-10 rounded-2xl shadow-md w-full md:w-1/2 flex flex-col items-center justify-center min-h-[210px]">
-            <Mail className="mb-2" size={24} />
-            <h3 className="text-lg font-medium mb-2">Mail Us</h3>
-            <p className="text-sm break-all"><Link href={`mailto:${sitedata.email}`}  >{sitedata.email}</Link></p>
+          <div className="bg-[var(--rv-primary)] text-white p-10 rounded-2xl shadow-md w-full md:w-1/2 flex flex-col items-center justify-center min-h-[250px]">
+            <Mail className="mb-2" size={36} />
+            <h3 className="text-2xl font-medium mb-2">Mail Us</h3>
+            <p className="text-lg break-all"><Link href={`mailto:${sitedata.email}`}  >{sitedata.email}</Link></p>
           </div>
-          <div className="bg-[var(--rv-primary)] text-white p-10 rounded-2xl shadow-md w-full md:w-1/2 min-h-[210px] flex flex-col items-center justify-center">
-            <Mail className="mb-2" size={24} />
-            <h3 className="text-lg font-medium mb-2">Reach Us</h3>
-            <p className="text-sm break-all"><Link href={`${sitedata.mapurl}`}  >{sitedata.address}</Link></p>
+          <div className="bg-[var(--rv-primary)] text-white p-10 rounded-2xl shadow-md w-full md:w-1/2 min-h-[250px] flex flex-col items-center justify-center">
+            <Mail className="mb-2" size={36} />
+            <h3 className="text-2xl font-medium mb-2">Reach Us</h3>
+            <p className="text-lg break-all"><Link href={`${sitedata.mapurl}`}  >{sitedata.address}</Link></p>
           </div>
         </div>
       </div>

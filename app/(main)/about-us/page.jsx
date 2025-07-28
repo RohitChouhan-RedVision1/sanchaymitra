@@ -50,7 +50,7 @@ import Image from "next/image";
                             <h2 className="text-3xl font-semibold text-gray-800 mb-4">
                 Our Mission
               </h2>
-              <p className="text-xl text-gray-700 mb-4 text-justify">
+              <p  className=" text-gray-700 mb-4 text-justify">
                 {missionvission.mission}
               </p>
                             </div>
@@ -64,7 +64,7 @@ import Image from "next/image";
                             <h2 className="text-3xl font-semibold text-gray-800 mb-4">
                 Our Vision
               </h2>
-              <p className="text-xl text-gray-700 mb-4 text-justify">
+              <p  className=" text-gray-700 mb-4 text-justify">
                 {missionvission.vision}
               </p>
                             </div>
@@ -87,7 +87,7 @@ import Image from "next/image";
               <h2 className="text-3xl font-semibold text-gray-800 mb-4">
                 Why Choose Us?
               </h2>
-              <p className="text-xl text-gray-700">
+              <p  className=" text-gray-700">
                 In a rapidly changing world, we remain steadfast in our dedication
                 to helping you secure your financial future. Your dreams are our
                 top priority, and your trust is the cornerstone of our service.
@@ -113,7 +113,7 @@ import Image from "next/image";
     </div>
             {/* Conclusion and CTA */}
             <div className="text-center mt-8">
-              <p className="text-xl text-gray-700 mb-4">
+              <p  className=" text-gray-700 mb-4">
                 We invite you to join us on this journey towards your financial
                 success. Our team is always here to assist you with expert advice,
                 innovative solutions, and unmatched dedication.
