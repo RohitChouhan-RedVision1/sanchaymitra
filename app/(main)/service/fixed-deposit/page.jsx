@@ -83,7 +83,7 @@ const FixedDeposits = async () => {
         {/* Description */}
         <div className="">
           <p className="text-gray-700">
-            Whether you're a conservative saver or planning for specific financial goals, FDs offer the peace of mind of assured returns, flexible tenure, and easy online management — all while keeping your principal safe.
+            Whether you&#39;re a conservative saver or planning for specific financial goals, FDs offer the peace of mind of assured returns, flexible tenure, and easy online management — all while keeping your principal safe.
           </p>
         </div>
       </div>
