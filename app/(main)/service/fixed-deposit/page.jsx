@@ -130,7 +130,7 @@ const FixedDeposits = async () => {
           <p className="text-gray-700 mb-4">
             Lock in higher interest rates and secure your future today. With {siteData?.websiteName}, starting a Fixed Deposit is fast, paperless, and rewarding.
           </p>
-          <Link href="/login" className="vl-btn6">
+          <Link href="/contact-us" className="vl-btn6">
             Start Your FD Now
           </Link>
         </div>

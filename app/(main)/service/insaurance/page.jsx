@@ -122,7 +122,7 @@ const Insurance = async () => {
           <p className="text-gray-700 mb-4">
             Health, life, or property—whatever you want to protect, {siteData?.websiteName} offers smart insurance plans to safeguard your future. Let&#39s build a shield for your peace of mind.
           </p>
-          <Link href="/login" className="vl-btn6">
+          <Link href="/contact-us" className="vl-btn6">
             Get Covered Now
           </Link>
         </div>
