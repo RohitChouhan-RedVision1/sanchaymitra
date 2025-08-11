@@ -85,10 +85,11 @@
 	text-align: center;
 	line-height: 50px;
 	display: flex;
+	justify-content: center;
 	transition: all 0.4s;
-	background: var(--ztc-bg-bg-3);
+	background: var(--rv-secondary);
 	border-radius: 50%;
-	padding: 13px;
+	padding: 5px;
 }
 
 .mainHeader .transparentHeader .heroBtn .headBtn .btnWrap span.text {

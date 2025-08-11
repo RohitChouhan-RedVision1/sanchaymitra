@@ -8,6 +8,7 @@ import styles from "./header.module.css";
 import {
   FaAngleRight,
   FaBarsStaggered,
+  FaWhatsapp,
   FaXmark,
   FaXmarksLines,
 } from "react-icons/fa6";
@@ -124,9 +125,9 @@ const Navbar = ({ siteData, services }) => {
                         Login
                       </Link>
                     </div>
-                    <span className={`${styles.btnWrap} text-end`}>
+                    <span className={`${styles.btnWrap} text-center`}>
                       <span className={styles.icons}>
-                        <img src="/icons/phone.svg" alt="Phone" />
+                        <FaWhatsapp size={36} className="text-white"/>
                       </span>
                       <span className={styles.text}>
                         {/* <span>Hotline 24/7</span> */}

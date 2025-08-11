@@ -11,6 +11,7 @@ import Calculator from "@/components/calculator/calculator";
 import { Testimonials } from "@/components/landing/testimonials/testimonials";
 import { OurPosts } from "@/components/landing/our-blogs/ourposts";
 import SubscribCard from "@/components/landing/subscribcard";
+import SocialMediaSidebar from "@/components/socialMedia";
 
 
 export default async function Page({ children }) {
@@ -39,6 +40,7 @@ export default async function Page({ children }) {
                 {/* <OurHistory /> */}
                 <OurPosts vidios={vidios} />
                 <SubscribCard  />
+                <SocialMediaSidebar sitedata={siteData} />
             </main>
         </div>
     );

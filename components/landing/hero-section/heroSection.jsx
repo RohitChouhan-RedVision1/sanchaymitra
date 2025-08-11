@@ -7,7 +7,7 @@ import Link from 'next/link';
 const HeroSection = () => {
     return (
         <div className={styles.heroSectionArea} style={{ backgroundImage: 'url(/all-images/bg/hero-bg1.png)', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
-            <div className="max-w-screen-xl mx-auto  pt-[100px] px-2 md:px-0">
+            <div className="max-w-screen-xl mx-auto  pt-[70px] px-2 md:px-0">
                 <div class="grid lg:grid-cols-2 grid-cols-1 items-center justify-center">
                     <div>
                         <div className={styles.headingArea}>
