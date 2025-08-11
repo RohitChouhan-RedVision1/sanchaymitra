@@ -98,7 +98,7 @@ const AmcLogosSlider = () => {
                     alt={logo.logoname}
                     width={160}
                     height={180}
-                    className="opacity-80 hover:opacity-100 transition ease-in-out duration-75"
+                    className=" transition ease-in-out duration-75"
                   />
                 </a>
               </div>

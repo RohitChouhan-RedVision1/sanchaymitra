@@ -5,6 +5,7 @@ import Link from "next/link";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { getSiteData } from "@/lib/functions";
 import Calculator from "@/components/calculator/calculator";
+import InnerBanner from "@/components/landing/innerbanner/page";
 
 export const metadata = {
   title: "Mutual Funds",
@@ -62,13 +63,7 @@ const features = [
 ];
   return (
     <div>
-      <div className="flex bg-center bg-no-repeat bg-cover bg-[url('/light-banner.jpg')] overflow-hidden text-start justify-start items-center h-64">
-        <div className="max-w-screen-xl mx-auto">
-          <h1 className="text-gray-900 text-3xl md:text-5xl font-bold">
-            Mutual Funds
-          </h1>
-        </div>
-      </div>
+      <InnerBanner title={"Mutual Funds"} />
       <div className="max-w-screen-xl mx-auto main_section">
         {/* Introduction */}
         <p className="text-2xl font-semibold text-gray-800 mb-4">
@@ -139,7 +134,7 @@ const features = [
             Take control of your financial future with smart mutual fund investments. Whether you&apos;re new to investing or a seasoned pro, {siteData?.websiteName} offers the right mix of funds to help you meet your goals.
           </p>
           <Link
-                        href="/login"
+                        href="/performance/fund-performance"
                         className="vl-btn6"
                       >
                         Explore funds now

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { getSiteData } from "@/lib/functions";
 import Calculator from "@/components/calculator/calculator";
+import InnerBanner from "@/components/landing/innerbanner/page";
 
 export const metadata = {
   title: "Fixed Deposits",
@@ -61,13 +62,7 @@ const FixedDeposits = async () => {
 
   return (
     <div>
-      <div className="flex bg-center bg-no-repeat bg-cover bg-[url('/light-banner.jpg')] overflow-hidden text-start justify-start items-center h-64">
-        <div className="max-w-screen-xl mx-auto">
-          <h1 className="text-gray-900 text-3xl md:text-5xl font-bold">
-            Fixed Deposits
-          </h1>
-        </div>
-      </div>
+      <InnerBanner title={"Fixed Deposits"} />
 
       <div className="max-w-screen-xl mx-auto main_section">
         {/* Introduction */}

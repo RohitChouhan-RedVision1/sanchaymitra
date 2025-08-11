@@ -33,9 +33,7 @@ const Footer = ({ siteData, services, SocialMedia,arn }) => {
               </Link>
               <div className="space24"></div>
               <p>
-                {siteData.websiteName} are AMFI-Registered Mutual Fund
-                Distributors. {siteData.websiteName} offer access to investment
-                products based on your financial goals and risk profile.
+                Sanchaymitra Financial Services Pvt. Ltd. is an AMFI-Registered Mutual Fund Distributor. We offer access to investment products based on your financial goals and risk profile.
               </p>
               <div className="space24"></div>
               <ul className="grid grid-cols-6">
@@ -98,7 +96,7 @@ const Footer = ({ siteData, services, SocialMedia,arn }) => {
               <ul>
                 {services?.map((service, idx) => (
                   <li key={idx}>
-                    <Link href={`/${service.link}`}>{service.name}</Link>
+                    <Link href={`/service/${service.link}`}>{service.name}</Link>
                   </li>
                 ))}
               </ul>

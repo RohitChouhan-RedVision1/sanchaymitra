@@ -2,17 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+
   * {
     @apply border-border;
   }
    html {
-    font-family: "Poppins", sans-serif;
+    font-family: "poppins",sans-serif;
   }
 
   body {
     @apply bg-background text-foreground;
-    font-family: var(--default-font);
+    font-family: "poppins",sans-serif;
   }
   :root {
     --background: 0 0% 100%;
@@ -57,8 +57,7 @@
     --divider-color: #F3F3F3;
     --dark-divider-color: #FFFFFF1A;
     --error-color: rgb(230, 87, 87);
-    --default-font: "Poppins", sans-serif;;
-
+    --default-font: "poppins",sans-serif; 
     --ztc-text-text-2: #061D19;
     --ztc-text-text-3: #333535;
     --ztc-text-text-4: #0666e5;
@@ -191,6 +190,72 @@
     --ztc-weight-black: 800;
 
   }
+  .inner-banner-modern {
+    position: relative;
+    padding: 100px 0;
+    background: linear-gradient(360deg, var(--rv-primary), #e2e6f8);
+    overflow: hidden;
+    text-align: center;
+}
+
+
+.inner-banner-modern .circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.1;
+    animation: float 6s ease-in-out infinite;
+}
+
+
+.inner-banner-modern .circle1 {
+    width: 150px;
+    height: 150px;
+    background: #000;
+    top: 20%;
+    left: 10%;
+}
+
+
+.inner-banner-modern .circle2 {
+    width: 100px;
+    height: 100px;
+    background: #333;
+    bottom: 15%;
+    right: 15%;
+    animation-delay: 2s;
+}
+
+.inner-banner-modern .circle3 {
+    width: 80px;
+    height: 80px;
+    background: #555;
+    top: 10%;
+    right: 20%;
+    animation-delay: 4s;
+}
+
+.banner-box-modern {
+    position: relative;
+    z-index: 2;
+}
+
+.banner-heading {
+    font-size: 48px;
+    font-weight: 700;
+    color: #070707;
+    margin-bottom: 15px;
+    animation: fadeSlideIn 1s ease forwards;
+    
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
 
   p{
     font-size: 16px;
@@ -222,7 +287,8 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
-}
+
+
 
 
 

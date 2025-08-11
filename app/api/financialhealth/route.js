@@ -12,6 +12,7 @@ LoadDB()
 
 export async function POST(request) {
     const data = await request.json();
+    console.log(data)
     try {
         await FinancialHealthUsersModel.create({
             username: data.user.username,

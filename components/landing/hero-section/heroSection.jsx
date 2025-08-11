@@ -11,11 +11,11 @@ const HeroSection = () => {
                 <div class="grid lg:grid-cols-2 grid-cols-1 items-center justify-center">
                     <div>
                         <div className={styles.headingArea}>
-                            <h5 data-aos="fade-left" data-aos-duration="800">Strategic Solutions For Financial Growth</h5>
+                            <h5 data-aos="fade-left" data-aos-duration="800">Smart Strategies. Measurable Results.</h5>
                             <div class="space20"></div>
-                            <h1 class="text-anime-style-1">Maximize Your Wealth with Professional Financial Services</h1>
+                            <h1 class="text-anime-style-1">Professional Guidance for Every Stage of Your Financial Journey</h1>
                             <div class="space20"></div>
-                            <p data-aos="fade-left" data-aos-duration="1000">You Come First, Always - Its More Than Financial Success; It&apos;s About Your Well-being!</p>
+                            <p data-aos="fade-left" data-aos-duration="1000">From Planning to Prosperity — We’re With You.</p>
                             <div class="space32"></div>
                             <div className={`${styles.btnArea} flex flex-col md:flex-row  pr-4 md:pr-0 gap-4`}>
                                 <Link href="/service/mutual-funds" className={`${styles.vlBtn1} ${styles.btn2}`}>Explore Our Services</Link>

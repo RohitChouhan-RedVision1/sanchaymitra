@@ -8,7 +8,6 @@ import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 const OurServices = ({ services }) => {
-    console.log(services)
     return (
         <div className={`${styles.serviceSectionArea} main_section`} style={{ backgroundImage: 'url(/all-images/bg/bg2.png)', backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
             <div className="max-w-screen-xl mx-auto">
@@ -17,7 +16,7 @@ const OurServices = ({ services }) => {
                         <div className="heading1 space-margin60">
                             <h5>OUR SERVICE</h5>
                             <div className="space20"></div>
-                            <h2 className="text-anime-style-1">Professional Services for Business Success</h2>
+                            <h2 className="text-anime-style-1"> Strategic Financial Solutions to Help Your Business Grow and Thrive</h2>
                         </div>
                     </div>
                 </div>

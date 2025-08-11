@@ -1,4 +1,5 @@
 "use client";
+import InnerBanner from "@/components/landing/innerbanner/page";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { footerData } from "@/data/footer";
 import axios from "axios";
@@ -49,13 +50,7 @@ export default function PrivacyPolicy() {
 
     return (
         <div>
-          <div className="flex bg-center bg-no-repeat bg-cover bg-[url('/light-banner.jpg')] overflow-hidden text-start justify-start items-center h-64">
-        <div className="max-w-screen-xl mx-auto">
-          <h1 className="text-gray-900 text-3xl md:text-5xl font-bold">
-            Privacy Policy
-          </h1>
-        </div>
-      </div>
+          <InnerBanner title={"Privacy Policy"} />
                                 {/* <div className="text-gray-700 max-w-screen-xl mx-auto main_section">
             <p dangerouslySetInnerHTML={createMarkup()} />
         </div> */}

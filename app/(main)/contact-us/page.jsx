@@ -1,4 +1,5 @@
 import ContactForm from "@/components/ContactUs/contactform";
+import InnerBanner from "@/components/landing/innerbanner/page";
 import { getSiteData } from "@/lib/functions";
 import { MapPin, Phone, Mail } from "lucide-react";
 import Link from "next/link";
@@ -6,36 +7,42 @@ export default async function ContactUs() {
   const sitedata = await getSiteData();
 
   return (
-    <div><div className="flex bg-center bg-no-repeat bg-cover bg-[url('/light-banner.jpg')] overflow-hidden text-start justify-start items-center h-64">
-        <div className="max-w-screen-xl mx-auto">
-          <h1 className="text-gray-900 text-3xl md:text-5xl font-bold">
-            Contact Us
-          </h1>
-        </div>
-      </div>
+    <div>
+      <InnerBanner title={"Contact us"}/>
     <div className="w-full max-w-7xl mx-auto px-4 main_section">
       {/* Contact Info Cards */}
-      <div className="flex flex-col  gap-4 overflow-hidden rounded-lg ">
-        {/* Call Us */}
-        <div className="flex flex-col md:flex-row gap-4 w-full justify-center items-center text-center">
-          <div className="bg-[var(--rv-primary)] text-white p-10 rounded-2xl shadow-md w-full md:w-1/2 flex flex-col items-center justify-center min-h-[250px]">
-            <Phone className="mb-2" size={36} />
-            <h3 className="text-2xl font-medium mb-2">Call Us</h3>
-            <p className="text-lg"><Link href={`tel:${sitedata.mobile}`} >{sitedata.mobile}</Link></p>
-          </div>
+       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+            <div className="bg-[var(--rv-primary)] text-[var(--rv-white)] shadow-md p-4 min-h-[70px] flex flex-col gap-6 ">
+              <div className="flex flex-col items-center">
+                <Phone size={36} className="mt-4" />
+                <h3 className="text-2xl font-medium mt-2">Call Us</h3>
+              </div>
+              <p className="text-xl ">
+                <Link href={`tel:${sitedata.mobile}`}>{sitedata.mobile}</Link>
+              </p>
+            </div>
+            <div className="bg-[var(--rv-primary)] text-[var(--rv-white)] shadow-md p-4 min-h-[70px] flex flex-col gap-6 ">
+              <div className="flex flex-col items-center">
+                <Mail size={36} className="mt-4" />
+                <h3 className="text-2xl font-medium mt-2">Mail Us</h3>
+              </div>
+              <p className="text-xl break-all">
+                <Link href={`mailto:${sitedata.email}`}>{sitedata.email}</Link>
+              </p>
+            </div>
+            <div className="bg-[var(--rv-primary)] text-[var(--rv-white)] shadow-md p-4 min-h-[70px] flex flex-col gap-6 justify-center items-center">
+              <div className="flex flex-col items-center">
+                <MapPin size={36} className="mt-4" />
+                <h3 className="text-2xl font-medium mt-2">Reach Us</h3>
+              </div>
+            <p className="text-xl break-words whitespace-pre-line">
+  <Link href={sitedata.mapurl}>
+    {sitedata.address?.replace('Shop No. 122 ', 'Shop No. 122\n')}
+  </Link>
+</p>
 
-          <div className="bg-[var(--rv-primary)] text-white p-10 rounded-2xl shadow-md w-full md:w-1/2 flex flex-col items-center justify-center min-h-[250px]">
-            <Mail className="mb-2" size={36} />
-            <h3 className="text-2xl font-medium mb-2">Mail Us</h3>
-            <p className="text-lg break-all"><Link href={`mailto:${sitedata.email}`}  >{sitedata.email}</Link></p>
+            </div>
           </div>
-          <div className="bg-[var(--rv-primary)] text-white p-10 rounded-2xl shadow-md w-full md:w-1/2 min-h-[250px] flex flex-col items-center justify-center">
-            <Mail className="mb-2" size={36} />
-            <h3 className="text-2xl font-medium mb-2">Reach Us</h3>
-            <p className="text-lg break-all"><Link href={`${sitedata.mapurl}`}  >{sitedata.address}</Link></p>
-          </div>
-        </div>
-      </div>
 
       {/* Reach Us */}
 

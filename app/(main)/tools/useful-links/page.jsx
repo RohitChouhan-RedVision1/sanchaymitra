@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import InnerBanner from "@/components/landing/innerbanner/page";
 
 const UsefulLinksPage = () => {
   const [usefulLink, setUsefulLink] = useState([]);
@@ -22,13 +23,7 @@ const UsefulLinksPage = () => {
   return (
     <div>
       {/* Hero Section */}
-      <div className="flex bg-center bg-no-repeat bg-cover bg-[url('/light-banner.jpg')] overflow-hidden text-start justify-start items-center h-64">
-        <div className="max-w-screen-xl mx-auto">
-          <h1 className="text-gray-900 text-3xl md:text-5xl font-bold">
-            Useful Links
-          </h1>
-        </div>
-      </div>
+     <InnerBanner title={"Useful Links"} /> 
 
       {/* Main Content */}
       <div className="max-w-screen-xl mx-auto py-12 px-4">
@@ -45,11 +40,11 @@ const UsefulLinksPage = () => {
             { title: "KYC Validation - CAMS", url: "https://camskra.com/emvalidation.aspx" },
             { title: "KYC Validation - CVLINDIA", url: "https://camskra.com/pan_aadhaarlink.aspx" },
             { title: "KRA Verification - CVL", url: "https://validate.cvlindia.com/CVLKRAVerification_V1/" },
-            { title: "TATA AIA", url: "https://myinsurance.tataaia.com/portfolio/login?target=50&policyNo=C213995779&paymentCampaign=siddhi" },
-            { title: "Star Health", url: "https://customer.starhealth.in/customerportal/instant-renewal" },
-            { title: "Care Health", url: "https://www.careinsurance.com/rhicl/proposalcp/renew/index-care" },
-            { title: "India First", url: "https://www.indiafirstlife.com/quick-pay" },
-            { title: "HDFC Life", url: "https://www.careinsurance.com/rhicl/proposalcp/renew/index-care" },
+            // { title: "TATA AIA", url: "https://myinsurance.tataaia.com/portfolio/login?target=50&policyNo=C213995779&paymentCampaign=siddhi" },
+            // { title: "Star Health", url: "https://customer.starhealth.in/customerportal/instant-renewal" },
+            // { title: "Care Health", url: "https://www.careinsurance.com/rhicl/proposalcp/renew/index-care" },
+            // { title: "India First", url: "https://www.indiafirstlife.com/quick-pay" },
+            // { title: "HDFC Life", url: "https://www.careinsurance.com/rhicl/proposalcp/renew/index-care" },
           ].map((item, idx) => (
             <a
               href={item.url}

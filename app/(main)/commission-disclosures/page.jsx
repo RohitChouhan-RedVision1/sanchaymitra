@@ -1,4 +1,5 @@
 "use client";
+import InnerBanner from "@/components/landing/innerbanner/page";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
@@ -49,13 +50,8 @@ const CommissionDisclosures = () => {
 
     return (
         <section>
-            <div className="flex bg-center bg-no-repeat bg-cover bg-[url('/light-banner.jpg')] overflow-hidden text-start justify-start items-center h-64">
-        <div className="max-w-screen-xl mx-auto">
-          <h1 className="text-gray-900 text-3xl md:text-5xl font-bold">
-            Commission Disclosure
-          </h1>
-        </div>
-      </div>
+            <InnerBanner title={"Commission Disclosure"}/>
+            
             <div className="max-w-screen-xl mx-auto main_section">
                 <div className=" ">
                     {/* Static Header Text */}

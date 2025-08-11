@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { getSiteData } from "@/lib/functions";
 import Calculator from "@/components/calculator/calculator";
+import InnerBanner from "@/components/landing/innerbanner/page";
 
 export const metadata = {
   title: "Loans",
@@ -62,18 +63,14 @@ const Loans = async () => {
   return (
     <div>
       {/* Hero Section */}
-      <div className="flex bg-center bg-no-repeat bg-cover bg-[url('/light-banner.jpg')] overflow-hidden text-start justify-start items-center h-64">
-        <div className="max-w-screen-xl mx-auto">
-          <h1 className="text-gray-900 text-3xl md:text-5xl font-bold">Loans</h1>
-        </div>
-      </div>
+      <InnerBanner title={"Loans"}/>
 
       <div className="max-w-screen-xl mx-auto main_section">
         {/* Introduction */}
         <p className="text-2xl font-semibold text-gray-800 mb-4">Empowering Your Aspirations</p>
         <div className="mb-8">
           <p className="text-gray-700">
-            At {siteData?.websiteName}, we understand that financial needs vary. Whether you&#39re planning a wedding, buying a house, growing your business, or pursuing higher education, our wide range of loan products is designed to provide the right support at the right time.
+            At {siteData?.websiteName}, we understand that financial needs vary. Whether you&#39;re planning a wedding, buying a house, growing your business, or pursuing higher education, our wide range of loan products is designed to provide the right support at the right time.
           </p>
         </div>
 

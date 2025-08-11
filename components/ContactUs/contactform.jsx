@@ -1,11 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { useRouter } from "next/navigation";
 
 export default function ContactForm({ sitedata }) {
+      const [captcha, setCaptcha] = useState("");
+  const [captchaImage, setCaptchaImage] = useState("");
+  const [userCaptcha, setUserCaptcha] = useState("");
   const [hcaptchaToken, setHcaptchaToken] = useState(null);
    const [captchaError, setCaptchaError] = useState("");
   const [formData, setFormData] = useState({
@@ -18,6 +21,29 @@ export default function ContactForm({ sitedata }) {
   const [submitted, setSubmitted] = useState(false);
   const router = useRouter();
 
+   const hcaptchaRef = useRef(null);
+
+      useEffect(() => {
+    refreshCaptcha();
+  }, []);
+
+    const generateCaptchaText = () => {
+    return Math.random().toString(36).substring(2, 8).toUpperCase();
+  };
+
+  const createCaptchaSVG = (text) => {
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" height="40" width="120">
+      <rect width="100%" height="100%" fill="#f8d7c3"/>
+      <text x="10" y="28" font-size="24" fill="#a30a00" font-family="monospace">${text}</text>
+    </svg>`;
+    return `data:image/svg+xml;base64,${btoa(svg)}`;
+  };
+  const refreshCaptcha = () => {
+    const newCaptcha = generateCaptchaText();
+    setCaptcha(newCaptcha);
+    setCaptchaImage(createCaptchaSVG(newCaptcha));
+    setUserCaptcha("");
+  }
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -39,12 +65,11 @@ export default function ContactForm({ sitedata }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-   if (!hcaptchaToken) {
-      setCaptchaError("Please complete the CAPTCHA verification.");
+  if (userCaptcha.trim().toUpperCase() !== captcha.trim().toUpperCase()) {
+      alert("Captcha doesn't match. Please try again.");
+      refreshCaptcha();
       return;
     }
-    setCaptchaError("");
 
     setLoading(true);
 
@@ -130,16 +155,31 @@ export default function ContactForm({ sitedata }) {
         ></textarea>
       </div>
 
-      <div>
-              <HCaptcha
-                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-                onVerify={(token) => setHcaptchaToken(token)}
-                className="w-full"
-              />
-              {captchaError && (
-                <p className="text-red-500 text-sm mt-2">{captchaError}</p>
-              )}
-            </div>
+        <div className="flex items-center gap-2">
+          {captchaImage && (
+            <img
+              src={captchaImage}
+              alt="Captcha"
+              className="h-10 w-[120px] border rounded shadow-sm"
+            />
+          )}
+          <input
+            name="captcha"
+            type="text"
+            placeholder="Enter Captcha"
+            className="w-full p-2 border border-gray-300 rounded"
+            value={userCaptcha}
+            onChange={(e) => setUserCaptcha(e.target.value)}
+            required
+          />
+          <button
+            type="button"
+            className="bg-gray-800 text-white px-3 py-2 rounded text-sm"
+            onClick={refreshCaptcha}
+          >
+            Refresh
+          </button>
+        </div>
 
       <div>
         <button

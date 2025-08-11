@@ -71,7 +71,7 @@ export default function Signin({siteData}) {
                 }`}
                 onClick={() => setSelectedRole(role)}
               >
-                <span className="text-sm">{role}</span>
+                {role === "BROKER" ? "Broker / RM" : role}
               </button>
             ))}
           </div>
@@ -169,7 +169,7 @@ export default function Signin({siteData}) {
               Forgot Password
             </Link>
             <span className="text-[#07070799]">|</span>
-            <Link href="/contactus" className="text-ms underline">
+            <Link href="contact-us" className="text-ms underline">
               SignUp
             </Link>
           </div>

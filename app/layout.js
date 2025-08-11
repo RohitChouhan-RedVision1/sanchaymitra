@@ -1,20 +1,14 @@
-import { Poppins,Roboto } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import RenewalPopup from "@/components/renewalPopup";
 import { SubscriptionProvider } from "@/context/SubscriptionContext";
 import Script from "next/script";
 
 
-const roboto = Roboto({
-  subsets: ["latin"],
-  variable: "--font-roboto",
-  weight: ["400", "500", "700"],
-});
-
 const poppins = Poppins({
   subsets: ["latin"],
-  variable: "--font-poppins",
-  weight: ["400", "500", "600"],
+  display: "swap",
+  weight: ["400", "600", "700"], // You can adjust the weights as needed
 });
 
 export const dynamic = "force-dynamic";
@@ -34,7 +28,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${roboto.variable} ${poppins.variable}`}>
+      <body className={`${poppins.className}`}>
         <SubscriptionProvider>
           <div className="bg-white">
             {children}

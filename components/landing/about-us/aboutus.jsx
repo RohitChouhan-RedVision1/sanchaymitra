@@ -14,7 +14,7 @@ export default function AboutSection({siteData}) {
                         <div className={styles.aboutImagesArea}>
                             <div className={styles.img1}>
                                 <Image
-                                    src="/all-images/about/about-img1.png"
+                                    src="/all-images/about/about-img1.webp"
                                     alt="About Image 1"
                                     width={50}
                                     height={400}

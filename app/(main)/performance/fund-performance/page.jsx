@@ -7,6 +7,7 @@ import Loading from "./loading";
 import PageLoading from "./loadingpage";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import CryptoJS from "crypto-js";
+import InnerBanner from "@/components/landing/innerbanner/page";
  
 export default function MarketUpdate() {
   const [categories, setCategories] = useState([]);
@@ -126,13 +127,7 @@ export default function MarketUpdate() {
 
   return (
     <div className="">
- <div className="flex bg-center bg-no-repeat bg-cover bg-[url('/light-banner.jpg')] overflow-hidden text-start justify-start items-center h-64">
-        <div className="max-w-screen-xl mx-auto">
-          <h1 className="text-gray-900 text-3xl md:text-5xl font-bold">
-            Fund Performance
-          </h1>
-        </div>
-      </div>
+<InnerBanner title={"Fund Performance"} />
       <div className="max-w-screen-xl mx-auto py-[30px] md:py-[60px] lg:px-1 px-3">
         {pageloading ? (
           <PageLoading />
