@@ -31,7 +31,7 @@ const HeroSection = () => {
                              
                             <img src="/elements/elements2.svg" className={`${styles.elements2} aniamtion-key-4`} alt="" />
                             <img src="/elements/elements3.svg" className={`${styles.elements3} aniamtion-key-1`} alt="" />
-                            <img src="/elements/elements4.svg" className={`${styles.elements4} aniamtion-key-2`} alt="" />
+{/*                             <img src="/elements/elements4.svg" className={`${styles.elements4} aniamtion-key-2`} alt="" /> */}
                             <img src="/elements/elements5.svg" className={`${styles.elements5} keyframe5`} alt="" />
                         </div>
                     </div>
