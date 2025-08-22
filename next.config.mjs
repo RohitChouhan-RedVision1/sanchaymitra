@@ -1,8 +1,7 @@
 import dotenv from "dotenv";
 import path from "path";
 
-dotenv.config({ path: "/rvdata/env-files/investfinvest.env" });
-
+dotenv.config({ path: "/rvdata/rvtools/env-files/sanchaymitra.env" });
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
