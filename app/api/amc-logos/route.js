@@ -9,7 +9,7 @@ export async function POST(req) {
     const { categoryID } = await req.json();
 
     // Fetch source data
-    const response = await axios.get("https://redvisionweb.com/api/amc-logo");
+    const response = await axios.get(`${process.env.NEXT_PUBLIC_DATA_API}/api/amc-logo`);
     const sourceData = response.data;
 
     // Fetch local data

@@ -1,167 +1,165 @@
-"use client";
-import React, { useEffect, useRef, useState } from "react";
-import WelcomePage from "./welcome";
-import axios from "axios";
+  "use client";
+  import React, { useEffect, useRef, useState } from "react";
+  import WelcomePage from "./welcome";
+  import axios from "axios";
 
-import Image from "next/image";
-import { Input } from "@/components/ui/input";
-import TopSuggestedFund from "@/components/topSuggestedFuns";
-import Link from "next/link";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormMessage,
-} from "@/components/ui/form";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import HCaptcha from "@hcaptcha/react-hcaptcha";
-import { toast } from "react-toastify";
-import InnerBanner from "@/components/landing/innerbanner/page";
+  import Image from "next/image";
+  import { Input } from "@/components/ui/input";
+  import TopSuggestedFund from "@/components/topSuggestedFuns";
+  import Link from "next/link";
+  import {
+    Form,
+    FormControl,
+    FormField,
+    FormItem,
+    FormMessage,
+  } from "@/components/ui/form";
+  import { useForm } from "react-hook-form";
+  import { z } from "zod";
+  import { zodResolver } from "@hookform/resolvers/zod";
+  import HCaptcha from "@hcaptcha/react-hcaptcha";
+  import { toast } from "react-toastify";
+  import InnerBanner from "@/components/landing/innerbanner/page";
 
-const FormSchema = z.object({
-  username: z
-    .string()
-    .min(2, { message: "Username must be at least 2 characters." }),
-  mobile: z.string().nonempty({ message: "Mobile number is required." }),
-  email: z.string().email({ message: "Invalid email address." }),
-  message: z.string().optional(),
-    captcha: z.string().optional(),
-});
+  const FormSchema = z.object({
+    username: z
+      .string()
+      .min(2, { message: "Username must be at least 2 characters." }),
+    mobile: z.string().nonempty({ message: "Mobile number is required." }),
+    email: z.string().email({ message: "Invalid email address." }),
+    message: z.string().optional(),
+      captcha: z.string().optional(),
+  });
 
-const FinancialHealthPage = () => {
-  const [isStart, setIsStart] = useState(false);
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [score, setScore] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [answers, setAnswers] = useState([]);
-  const [isQuizCompleted, setIsQuizCompleted] = useState(false);
-  const [questions, setQuestions] = useState([]);
-  const [captcha, setCaptcha] = useState("");
-  const [captchaImage, setCaptchaImage] = useState("");
-  const [userCaptcha, setUserCaptcha] = useState("");
-  const [performanceData, setPerformanceData] = useState({});
-  const [loading, setLoading] = useState(false);
-      const [sitedata, setSitedata] = useState([]);
-  const hcaptchaRef = useRef(null);
-      const fetchSiteData = async () => {
-          try {
-              const res = await axios.get('/api/admin/site-settings');
-              if (res.status === 200) {
-                  setSitedata(res.data[0])
-              }
-          }
-          catch (error) {
-              console.log(error)
-          }
-      }
-  
-      useEffect(() => { fetchSiteData()}, [])
+  const FinancialHealthPage = () => {
+    const [isStart, setIsStart] = useState(false);
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+    const [score, setScore] = useState(0);
+    const [selectedAnswer, setSelectedAnswer] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [answers, setAnswers] = useState([]);
+    const [isQuizCompleted, setIsQuizCompleted] = useState(false);
+    const [questions, setQuestions] = useState([]);
+    const [captcha, setCaptcha] = useState("");
+    const [captchaImage, setCaptchaImage] = useState("");
+    const [userCaptcha, setUserCaptcha] = useState("");
+    const [performanceData, setPerformanceData] = useState({});
+    const [loading, setLoading] = useState(false);
+        const [sitedata, setSitedata] = useState([]);
+    const hcaptchaRef = useRef(null);
+        const fetchSiteData = async () => {
+            try {
+                const res = await axios.get('/api/admin/site-settings');
+                if (res.status === 200) {
+                    setSitedata(res.data[0])
+                }
+            }
+            catch (error) {
+                console.log(error)
+            }
+        }
+    
+        useEffect(() => { fetchSiteData()}, [])
 
-  useEffect(() => {
-    refreshCaptcha();
-  }, []);
+    useEffect(() => {
+      refreshCaptcha();
+    }, []);
 
-  const generateCaptchaText = () => {
-    return Math.random()
-      .toString(36)
-      .substring(2, 8)
-      .toUpperCase();
-  };
-
-  const createCaptchaSVG = (text) => {
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" height="40" width="120">
-         <rect width="100%" height="100%" fill="#f8d7c3"/>
-         <text x="10" y="28" font-size="24" fill="#a30a00" font-family="monospace">${text}</text>
-       </svg>`;
-    return `data:image/svg+xml;base64,${btoa(svg)}`;
-  };
-  const refreshCaptcha = () => {
-    const newCaptcha = generateCaptchaText();
-    setCaptcha(newCaptcha);
-    setCaptchaImage(createCaptchaSVG(newCaptcha));
-    setUserCaptcha("");
-  };
-
-  useEffect(() => {
-    if (isQuizCompleted) {
-      const suggestedFunds = getSuggestedFunds();
-      if (suggestedFunds.length > 0) {
-        fetchPerformanceData(suggestedFunds);
-      }
-    }
-  }, [isQuizCompleted]);
-
-  const fetchPerformanceData = async (categories) => {
-    setIsModalOpen(true);
-    setLoading(true);
-    try {
-      // Join all categories into one string with commas
-      const queryString = categories
-        .map((cat) => encodeURIComponent(cat))
-        .join(",");
-      console.log("Query String:", queryString);
-
-      const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_DATA_API}/api/open-apis/fund-performance/fp-data?categorySchemes=${queryString}&apikey=${process.env.NEXT_PUBLIC_API_KEY}`
-      );
-
-      console.log("API Response:", response.data);
-
-      if (response.status === 200) {
-        const { data } = response.data;
-        setPerformanceData(data.slice(0, 5));
-      }
-    } catch (error) {
-      console.error("Error fetching performance data:", error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const fetchQuestions = async () => {
-    try {
-      const response = await axios.get(
-        `${process.env.NEXT_PUBLIC_DATA_API}/api/open-apis/health-questions?apikey=${process.env.NEXT_PUBLIC_API_KEY}`
-      );
-      if (response.status === 200) {
-        setQuestions(response.data);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const handleAnswerSelect = (mark) => {
-    setSelectedAnswer(mark);
-
-    const newAnswer = {
-      question: questions[currentQuestionIndex].question,
-      selectedAnswerMarks: mark,
+    const generateCaptchaText = () => {
+      return Math.random()
+        .toString(36)
+        .substring(2, 8)
+        .toUpperCase();
     };
 
-    setScore((prevScore) => prevScore + mark);
+    const createCaptchaSVG = (text) => {
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" height="40" width="120">
+          <rect width="100%" height="100%" fill="#f8d7c3"/>
+          <text x="10" y="28" font-size="24" fill="#a30a00" font-family="monospace">${text}</text>
+        </svg>`;
+      return `data:image/svg+xml;base64,${btoa(svg)}`;
+    };
+    const refreshCaptcha = () => {
+      const newCaptcha = generateCaptchaText();
+      setCaptcha(newCaptcha);
+      setCaptchaImage(createCaptchaSVG(newCaptcha));
+      setUserCaptcha("");
+    };
 
-    setTimeout(() => {
-      const nextQuestionIndex = currentQuestionIndex + 1;
-
-      if (nextQuestionIndex >= questions.length) {
-        setAnswers((prev) => [...prev, newAnswer]);
-        setIsQuizCompleted(true);
-      } else {
-        setAnswers((prev) => [...prev, newAnswer]);
-        setCurrentQuestionIndex(nextQuestionIndex);
-        setSelectedAnswer(null);
+    useEffect(() => {
+      if (isQuizCompleted) {
+        const suggestedFunds = getSuggestedFunds();
+        if (suggestedFunds.length > 0) {
+          fetchPerformanceData(suggestedFunds);
+        }
       }
-    }, 300); // ⏳ 0.3 seconds delay
-  };
+    }, [isQuizCompleted]);
 
-  const sendAllAnswersToAPI = async (data) => {
-    console.log(answers)
-    console.log(data)
+    const fetchPerformanceData = async (categories) => {
+      setIsModalOpen(true);
+      setLoading(true);
+      try {
+        // Join all categories into one string with commas
+        const queryString = categories
+          .map((cat) => encodeURIComponent(cat))
+          .join(",");
+        console.log("Query String:", queryString);
+
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_DATA_API}/api/open-apis/fund-performance/fp-data?categorySchemes=${queryString}&apikey=${process.env.NEXT_PUBLIC_API_KEY}`
+        );
+
+        console.log("API Response:", response.data);
+
+        if (response.status === 200) {
+          const { data } = response.data;
+          setPerformanceData(data.slice(0, 5));
+        }
+      } catch (error) {
+        console.error("Error fetching performance data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    const fetchQuestions = async () => {
+      try {
+        const response = await axios.get(
+          `${process.env.NEXT_PUBLIC_DATA_API}/api/open-apis/health-questions?apikey=${process.env.NEXT_PUBLIC_API_KEY}`
+        );
+        if (response.status === 200) {
+          setQuestions(response.data);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    const handleAnswerSelect = (mark) => {
+      setSelectedAnswer(mark);
+
+      const newAnswer = {
+        question: questions[currentQuestionIndex].question,
+        selectedAnswerMarks: mark,
+      };
+
+      setScore((prevScore) => prevScore + mark);
+
+      setTimeout(() => {
+        const nextQuestionIndex = currentQuestionIndex + 1;
+
+        if (nextQuestionIndex >= questions.length) {
+          setAnswers((prev) => [...prev, newAnswer]);
+          setIsQuizCompleted(true);
+        } else {
+          setAnswers((prev) => [...prev, newAnswer]);
+          setCurrentQuestionIndex(nextQuestionIndex);
+          setSelectedAnswer(null);
+        }
+      }, 300); // ⏳ 0.3 seconds delay
+    };
+
+     const sendAllAnswersToAPI = async (data) => {
     let healthprofile;
     const totalScore = answers.reduce(
       (acc, curr) => acc + curr.selectedAnswerMarks,
@@ -186,8 +184,14 @@ const FinancialHealthPage = () => {
     };
     const emailContent = answers
       .map((answer) => {
+        const answerText =
+          answer.selectedAnswerMarks === 1
+            ? "Yes"
+            : answer.selectedAnswerMarks === 0
+            ? "No"
+            : answer.selectedAnswerMarks; 
         return `<p><strong>Question:</strong> ${answer.question}</p>
-                    <p><strong>Answer:</strong> ${answer.selectedAnswerText}</p>`;
+            <p><strong>Answer:</strong> ${answerText}</p>`;
       })
       .join("");
 
@@ -195,28 +199,28 @@ const FinancialHealthPage = () => {
       user: data?.username,
       to: data?.email,
       subject: "Thank You for Your Enquiry!",
-      text: `Dear ${data?.username},
+      html: `Dear ${data?.username},
     We sincerely appreciate your interest and the time you took to fill out our enquiry form. We have received your details, and our team will be in touch with you soon.
-    
+   
     Your score is ${totalScore}
-    
+   
     Here are the answers you provided:
-    
+   
     ${emailContent},`,
     };
     const senderdata = {
       user: data?.title,
       to: sitedata?.email,
       subject: "New Enquiry",
-      text: `New Enquiry from Risk profile\n
+      html: `New Enquiry from Risk profile\n
 User Name : ${data?.username}, \n
 Email : ${data?.email} \n
 Mobile number : ${data?.mobile} \n
 Message : ${data?.message}\n
 User score is ${totalScore}
-
+ 
 Here are the answers you provided:
-    
+   
 ${emailContent},`,
     };
     const response = await axios.post("/api/financialhealth", payload);
@@ -231,150 +235,64 @@ ${emailContent},`,
     }
   };
 
-  const InquiryForm = () => {
-    const [hcaptchaToken, setHcaptchaToken] = useState(null);
+    const InquiryForm = () => {
+      
 
-    const form = useForm({
-      resolver: zodResolver(FormSchema),
-      defaultValues: {
-        username: "",
-        mobile: "",
-        email: "",
-        message: "",
-        captcha: "",
-      },
-    });
+      const form = useForm({
+        resolver: zodResolver(FormSchema),
+        defaultValues: {
+          username: "",
+          mobile: "",
+          email: "",
+          message: "",
+          captcha: "",
+        },
+      });
 
-    console.log(captcha)
-    // Handle form submission
-    const onSubmit = async (data) => {
-      console.log(data);
-      if (
-        captcha.trim().toUpperCase() !== data?.captcha?.trim().toUpperCase()
-      ) {
-        alert("Captcha doesn't match. Please try again.");
-        refreshCaptcha();
-        return;
-      }
+      console.log(captcha)
+      // Handle form submission
+      const onSubmit = async (data) => {
+        console.log(data);
+        if (
+          captcha.trim().toUpperCase() !== data?.captcha?.trim().toUpperCase()
+        ) {
+          alert("Captcha doesn't match. Please try again.");
+          refreshCaptcha();
+          return;
+        }
 
-      setLoading(true);
-sendAllAnswersToAPI(data)
-    //   setIsModalOpen(false);
-    //   setLoading(false);
-    };
+        setLoading(true);
+  sendAllAnswersToAPI(data)
+        setIsModalOpen(false);
+        setLoading(false);
+      };
 
-    return (
-      <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-8 rounded py-3 px-6 text-black"
-        >
-          <div className="flex justify-between items-center">
-            <h1 className="font-medium text-xl">
-              Please Fill Your Detail Carefully...
-            </h1>
-            <Link href="/" className="text-right text-blue-500 font-medium">
-              Back
-            </Link>
-          </div>
-          {/* Username Field */}
-          <FormField
-            control={form.control}
-            name="username"
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <Input
-                    placeholder="User Name"
-                    {...field}
-                    aria-label="User Name"
-                    className="border border-gray-500"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          {/* Mobile Field */}
-          <FormField
-            control={form.control}
-            name="mobile"
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <Input
-                    placeholder="Mobile"
-                    {...field}
-                    aria-label="Mobile Number"
-                    className="border border-gray-500"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          {/* Email Field */}
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <Input
-                    type="email"
-                    placeholder="Email"
-                    {...field}
-                    aria-label="Email"
-                    className="border border-gray-500"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          {/* Message Field */}
-          <FormField
-            control={form.control}
-            name="message"
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <textarea
-                    placeholder="Message"
-                    {...field}
-                    className="w-full border border-gray-500 p-1 rounded bg-white"
-                    aria-label="Message"
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          {/* hCaptcha */}
-          <div className="flex items-center gap-2">
-            {captchaImage && (
-              <img
-                src={captchaImage}
-                alt="Captcha"
-                className="h-10 w-[120px] border rounded shadow-sm"
-              />
-            )}
+      return (
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="space-y-8 rounded py-3 px-6 text-black"
+          >
+            <div className="flex justify-between items-center">
+              <h1 className="font-medium text-xl">
+                Please Fill Your Detail Carefully...
+              </h1>
+              <Link href="/" className="text-right text-blue-500 font-medium">
+                Back
+              </Link>
+            </div>
+            {/* Username Field */}
             <FormField
               control={form.control}
-              name="captcha"
+              name="username"
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
                     <Input
-                      type="text"
-                      placeholder="Enter Captcha"
+                      placeholder="User Name"
                       {...field}
-                      aria-label="Email"
-                      className="w-full p-2 border border-gray-300 rounded"
+                      aria-label="User Name"
+                      className="border border-gray-500"
                     />
                   </FormControl>
                   <FormMessage />
@@ -382,229 +300,315 @@ sendAllAnswersToAPI(data)
               )}
             />
 
-            <button
-              type="button"
-              className="bg-gray-800 text-white px-3 py-2 rounded text-sm"
-              onClick={refreshCaptcha}
-            >
-              Refresh
-            </button>
-          </div>
-
-          {/* Submit Button */}
-          <button type="submit" className="vl-btn6">
-            {!loading ? "Submit" : "Loading..."}
-          </button>
-        </form>
-      </Form>
-    );
-  };
-
-  const getResultMessage = () => {
-    if (score >= 1 && score <= 3)
-      return { message: "Critical", color: "text-red-500" };
-    if (score >= 4 && score <= 5)
-      return { message: "Weak", color: "text-yellow-600" };
-    if (score >= 6 && score <= 7)
-      return { message: "Border Line", color: "text-yellow-400" };
-    if (score >= 8 && score <= 9)
-      return { message: "Fit", color: "text-green-400" };
-    return { message: "Excellent", color: "text-green-500" };
-  };
-
-  const getSuggestedFunds = () => {
-    switch (getResultMessage().message) {
-      case "Critical":
-        return [
-          "Liquid Fund",
-          "Ultra Short Duration Fund",
-          "Balanced Hybrid Fund",
-        ];
-      case "Weak":
-        return [
-          "Conservative Hybrid Fund",
-          "Equity Savings Fund",
-          "Multi Asset Allocation Fund",
-        ];
-      case "Border Line":
-        return [
-          "Aggressive Hybrid Fund",
-          "Large & Mid Cap Fund",
-          "Index Funds/ETFs",
-        ];
-      case "Fit":
-        return ["Flexi Cap Fund", "Mid Cap Fund", "Focused Fund"];
-      case "Excellent":
-        return ["ELSS Fund", "International Fund", "Thematic Fund"];
-      default:
-        return [];
-    }
-  };
-
-  useEffect(() => {
-    fetchQuestions();
-  }, [isStart]);
-
-  return (
-    <div>
-        <InnerBanner title={"Financial health"}/>
-      <div className="flex flex-col bg-cover bg-center relative">
-        <div className="absolute inset-0"></div>
-        {isModalOpen && (
-          <>
-            {/* 🔵 Background Blur Layer */}
-            <div className="fixed inset-0 bg-black/30 backdrop-blur-xs z-10"></div>
-
-            {/* 🔵 Modal */}
-            <div className="fixed inset-0 flex items-center justify-center z-20">
-              <div className="p-3 rounded-lg shadow-lg w-[30rem] bg-white ring-1 ring-gray-800 text-white mt-10">
-                <InquiryForm
-                  onClose={() => {
-                    setIsModalOpen(false);
-                    setIsFormVisible(true); // Show quiz after form is filled
-                  }}
-                />
-              </div>
-            </div>
-          </>
-        )}
-
-        <div className="flex flex-col items-center justify-center flex-grow text-center px-6 relative py-20 space-y-5">
-          <div className="bg-[var(--rv-primary)] backdrop-blur-xl px-10 py-7 rounded-2xl shadow-xl border border-white/20 max-w-5xl">
-            {!isStart ? (
-              <WelcomePage onStatus={setIsStart} />
-            ) : isQuizCompleted ? (
-              <div className="">
-                <div className="grid grid-cols-2 gap-5">
-                  <div className="">
-                    <Image
-                      src={"/health-check.webp"}
-                      width={900}
-                      height={200}
-                      alt="Image"
-                      className="bg-cover rounded"
+            {/* Mobile Field */}
+            <FormField
+              control={form.control}
+              name="mobile"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input
+                      placeholder="Mobile"
+                      {...field}
+                      aria-label="Mobile Number"
+                      className="border border-gray-500"
                     />
-                  </div>
-                  <div className="flex flex-col items-center text-center space-y-6">
-                    {/* 🎯 RESULT CARD */}
-                    <div className="bg-gradient-to-r from-[var(--rv-secondary)] to-[var(--rv-third)] p-8 rounded-2xl shadow-2xl w-full max-w-md">
-                      <h2 className="text-xl font-semibold text-white">
-                        Your Health checkup is
-                      </h2>
-                      <div className="mt-3 text-5xl font-extrabold text-white">
-                        {getResultMessage().message}
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            {/* Email Field */}
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input
+                      type="email"
+                      placeholder="Email"
+                      {...field}
+                      aria-label="Email"
+                      className="border border-gray-500"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            {/* Message Field */}
+            <FormField
+              control={form.control}
+              name="message"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <textarea
+                      placeholder="Message"
+                      {...field}
+                      className="w-full border border-gray-500 p-1 rounded bg-white"
+                      aria-label="Message"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            {/* hCaptcha */}
+            <div className="flex items-center gap-2">
+              {captchaImage && (
+                <img
+                  src={captchaImage}
+                  alt="Captcha"
+                  className="h-10 w-[120px] border rounded shadow-sm"
+                />
+              )}
+              <FormField
+                control={form.control}
+                name="captcha"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input
+                        type="text"
+                        placeholder="Enter Captcha"
+                        {...field}
+                        aria-label="Email"
+                        className="w-full p-2 border border-gray-300 rounded"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <button
+                type="button"
+                className="bg-gray-800 text-white px-3 py-2 rounded text-sm"
+                onClick={refreshCaptcha}
+              >
+                Refresh
+              </button>
+            </div>
+
+            {/* Submit Button */}
+            <button type="submit" className="vl-btn6">
+              {!loading ? "Submit" : "Loading..."}
+            </button>
+          </form>
+        </Form>
+      );
+    };
+
+    const getResultMessage = () => {
+      if (score >= 1 && score <= 3)
+        return { message: "Critical", color: "text-red-500" };
+      if (score >= 4 && score <= 5)
+        return { message: "Weak", color: "text-yellow-600" };
+      if (score >= 6 && score <= 7)
+        return { message: "Border Line", color: "text-yellow-400" };
+      if (score >= 8 && score <= 9)
+        return { message: "Fit", color: "text-green-400" };
+      return { message: "Excellent", color: "text-green-500" };
+    };
+
+    const getSuggestedFunds = () => {
+      switch (getResultMessage().message) {
+        case "Critical":
+          return [
+            "Liquid Fund",
+            "Ultra Short Duration Fund",
+            "Balanced Hybrid Fund",
+          ];
+        case "Weak":
+          return [
+            "Conservative Hybrid Fund",
+            "Equity Savings Fund",
+            "Multi Asset Allocation Fund",
+          ];
+        case "Border Line":
+          return [
+            "Aggressive Hybrid Fund",
+            "Large & Mid Cap Fund",
+            "Index Funds/ETFs",
+          ];
+        case "Fit":
+          return ["Flexi Cap Fund", "Mid Cap Fund", "Focused Fund"];
+        case "Excellent":
+          return ["ELSS Fund", "International Fund", "Thematic Fund"];
+        default:
+          return [];
+      }
+    };
+
+    useEffect(() => {
+      fetchQuestions();
+    }, [isStart]);
+
+    return (
+      <div>
+          <InnerBanner title={"Financial health"}/>
+        <div className="flex flex-col bg-cover bg-center relative">
+          <div className="absolute inset-0"></div>
+          {isModalOpen && (
+            <>
+              {/* 🔵 Background Blur Layer */}
+              <div className="fixed inset-0 bg-black/30 backdrop-blur-xs z-10"></div>
+
+              {/* 🔵 Modal */}
+              <div className="fixed inset-0 flex items-center justify-center z-20">
+                <div className="p-3 rounded-lg shadow-lg w-[30rem] bg-white ring-1 ring-gray-800 text-white mt-10">
+                  <InquiryForm
+                    onClose={() => {
+                      setIsModalOpen(false);
+                      setIsFormVisible(true); // Show quiz after form is filled
+                    }}
+                  />
+                </div>
+              </div>
+            </>
+          )}
+
+          <div className="flex flex-col items-center justify-center flex-grow text-center px-6 relative py-20 space-y-5">
+            <div className="bg-[var(--rv-primary)] backdrop-blur-xl px-10 py-7 rounded-2xl shadow-xl border border-white/20 max-w-5xl">
+              {!isStart ? (
+                <WelcomePage onStatus={setIsStart} />
+              ) : isQuizCompleted ? (
+                <div className="">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div className="">
+                      <Image
+                        src={"/health-check.webp"}
+                        width={900}
+                        height={200}
+                        alt="Image"
+                        className="bg-cover rounded"
+                      />
+                    </div>
+                    <div className="flex flex-col items-center text-center space-y-6">
+                      {/* 🎯 RESULT CARD */}
+                      <div className="bg-gradient-to-r from-[var(--rv-secondary)] to-[var(--rv-third)] p-8 rounded-2xl shadow-2xl w-full max-w-md">
+                        <h2 className="text-xl font-semibold text-white">
+                          Your Health checkup is
+                        </h2>
+                        <div className="mt-3 text-5xl font-extrabold text-white">
+                          {getResultMessage().message}
+                        </div>
                       </div>
+
+                      {/* 🎯 RESULT DESCRIPTION */}
+                      <div>
+                        <p className="text-neutral-100 text-xl max-w-md">
+                          {getResultMessage().message === "Critical" &&
+                            "Your financial health is in danger. You’re exposed to risks. Start investing, even a small start today can protect your future. Don’t wait for a crisis to act."}
+
+                          {getResultMessage().message === "Weak" &&
+                            "Your financial base is fragile. Right now, your money isn't growing. Begin with disciplined investing to build strength and security step by step."}
+
+                          {getResultMessage().message === "Border Line" &&
+                            "You’ve made a start, but it’s not enough. With focused investing, you can reduce stress and grow more confidently. Take the next step today."}
+
+                          {getResultMessage().message === "Fit" &&
+                            "You're doing well. Keep going with smarter strategies. Long-term investing can help you grow potential wealth and give you peace of mind in future."}
+
+                          {getResultMessage().message === "Excellent" &&
+                            "You've built a strong foundation. Now’s the time to grow faster, diversify more, invest with purpose, and build long-term potential wealth."}
+                        </p>
+                      </div>
+                      <Link
+                        href={"#showfunds"}
+                        id="showfunds"
+                        className="vl-btn6"
+                      >
+                        Show Funds
+                      </Link>
                     </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="flex flex-col">
+                  {/* ✅ Question */}
+                  <h2 className="text-4xl font-semibold mb-4 max-w-3xl text-white">
+                    {currentQuestionIndex + 1}.{" "}
+                    {questions[currentQuestionIndex]?.question}
+                  </h2>
 
-                    {/* 🎯 RESULT DESCRIPTION */}
-                    <div>
-                      <p className="text-neutral-100 text-xl max-w-md">
-                        {getResultMessage().message === "Critical" &&
-                          "Your financial health is in danger. You’re exposed to risks. Start investing, even a small start today can protect your future. Don’t wait for a crisis to act."}
-
-                        {getResultMessage().message === "Weak" &&
-                          "Your financial base is fragile. Right now, your money isn't growing. Begin with disciplined investing to build strength and security step by step."}
-
-                        {getResultMessage().message === "Border Line" &&
-                          "You’ve made a start, but it’s not enough. With focused investing, you can reduce stress and grow more confidently. Take the next step today."}
-
-                        {getResultMessage().message === "Fit" &&
-                          "You're doing well. Keep going with smarter strategies. Long-term investing can help you grow potential wealth and give you peace of mind in future."}
-
-                        {getResultMessage().message === "Excellent" &&
-                          "You've built a strong foundation. Now’s the time to grow faster, diversify more, invest with purpose, and build long-term potential wealth."}
-                      </p>
-                    </div>
-                    <Link
-                      href={"#showfunds"}
-                      id="showfunds"
-                      className="vl-btn6"
+                  {/* ✅ Answer Buttons */}
+                  <div className="mt-5 space-y-4">
+                    <button
+                      className={`mb-5 py-3 w-full rounded-xl border font-bold text-xl transition ${
+                        selectedAnswer === 1
+                          ? "bg-[var(--rv-secondary)] text-white"
+                          : "bg-[var(--rv-primary)] text-white"
+                      }`}
+                      onClick={() => handleAnswerSelect(1)}
+                      disabled={selectedAnswer !== null} // ✅ Disable once clicked
                     >
-                      Show Funds
+                      Yes
+                    </button>
+
+                    <button
+                      className={`py-3 w-full rounded-xl border font-bold text-xl transition ${
+                        selectedAnswer === 0
+                          ? "bg-[var(--rv-secondary)] text-white"
+                          : "bg-[var(--rv-primary)] text-white"
+                      }`}
+                      onClick={() => handleAnswerSelect(0)}
+                      disabled={selectedAnswer !== null}
+                    >
+                      No
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+            {isQuizCompleted && (
+              <div
+                id="showfunds"
+                className="bg-white/10 backdrop-blur-xl px-10 py-7 rounded-2xl shadow-xl border border-white/20 max-w-5xl"
+              >
+                <div className="text-left mt-6">
+                  <div className="text-center mb-5">
+                    <h3 className="text-2xl font-bold text-black mb-4">
+                      Suggested Funds for You
+                    </h3>
+                    <p className="text-gray-7 00 max-w-2xl mx-auto text-sm">
+                      The suggested funds are provided based on general categories
+                      and historical performance data. These are not investment
+                      recommendations or personalized financial advice. Please
+                      consult your financial advisor and read all scheme-related
+                      documents carefully before investing. Mutual Fund
+                      investments are subject to market risks. Read all scheme
+                      related documents carefully.
+                    </p>
+                  </div>
+
+                  {loading && (
+                    <p className="text-white">⏳ Loading fund suggestions...</p>
+                  )}
+
+                  {!loading && performanceData.length > 0 && (
+                    <TopSuggestedFund performanceData={performanceData} />
+                  )}
+                  <div className=" flex justify-center items-center mt-4">
+                    <Link
+                      href={"/performance/fund-performance"}
+                      className="btn-secondary"
+                    >
+                      Explore more
                     </Link>
                   </div>
                 </div>
               </div>
-            ) : (
-              <div className="flex flex-col">
-                {/* ✅ Question */}
-                <h2 className="text-4xl font-semibold mb-4 max-w-3xl text-white">
-                  {currentQuestionIndex + 1}.{" "}
-                  {questions[currentQuestionIndex]?.question}
-                </h2>
-
-                {/* ✅ Answer Buttons */}
-                <div className="mt-5 space-y-4">
-                  <button
-                    className={`mb-5 py-3 w-full rounded-xl border font-bold text-xl transition ${
-                      selectedAnswer === 1
-                        ? "bg-[var(--rv-secondary)] text-white"
-                        : "bg-[var(--rv-primary)] text-white"
-                    }`}
-                    onClick={() => handleAnswerSelect(1)}
-                    disabled={selectedAnswer !== null} // ✅ Disable once clicked
-                  >
-                    Yes
-                  </button>
-
-                  <button
-                    className={`py-3 w-full rounded-xl border font-bold text-xl transition ${
-                      selectedAnswer === 0
-                        ? "bg-[var(--rv-secondary)] text-white"
-                        : "bg-[var(--rv-primary)] text-white"
-                    }`}
-                    onClick={() => handleAnswerSelect(0)}
-                    disabled={selectedAnswer !== null}
-                  >
-                    No
-                  </button>
-                </div>
-              </div>
             )}
           </div>
-          {isQuizCompleted && (
-            <div
-              id="showfunds"
-              className="bg-white/10 backdrop-blur-xl px-10 py-7 rounded-2xl shadow-xl border border-white/20 w-5xl"
-            >
-              <div className="text-left mt-6">
-                <div className="text-center mb-5">
-                  <h3 className="text-2xl font-bold text-white mb-4">
-                    Suggested Funds for You
-                  </h3>
-                  <p className="text-gray-7 00 max-w-2xl mx-auto text-sm">
-                    The suggested funds are provided based on general categories
-                    and historical performance data. These are not investment
-                    recommendations or personalized financial advice. Please
-                    consult your financial advisor and read all scheme-related
-                    documents carefully before investing. Mutual Fund
-                    investments are subject to market risks. Read all scheme
-                    related documents carefully.
-                  </p>
-                </div>
-
-                {loading && (
-                  <p className="text-white">⏳ Loading fund suggestions...</p>
-                )}
-
-                {!loading && performanceData.length > 0 && (
-                  <TopSuggestedFund performanceData={performanceData} />
-                )}
-                <div className=" flex justify-center items-center mt-4">
-                  <Link
-                    href={"/performance/fund-performance"}
-                    className="btn-secondary"
-                  >
-                    Explore more
-                  </Link>
-                </div>
-              </div>
-            </div>
-          )}
         </div>
       </div>
-    </div>
-  );
-};
+    );
+  };
 
-export default FinancialHealthPage;
+  export default FinancialHealthPage;

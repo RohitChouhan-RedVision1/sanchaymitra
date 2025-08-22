@@ -93,8 +93,8 @@ const AmcLogosSlider = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Image
-                    src={`https://redvisionweb.com/${logo.logo}`}
+                  <img
+                    src={`${process.env.NEXT_PUBLIC_CLIENT_DATA_API}${logo.logo}`}
                     alt={logo.logoname}
                     width={160}
                     height={180}

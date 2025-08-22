@@ -125,9 +125,9 @@ const Navbar = ({ siteData, services }) => {
                         Login
                       </Link>
                     </div>
-                    <span className={`${styles.btnWrap} text-center`}>
+                    <span className={`${styles.btnWrap} text-end`}>
                       <span className={styles.icons}>
-                        <FaWhatsapp size={36} className="text-white"/>
+                        <img src="/icons/phone.svg" alt="Phone" />
                       </span>
                       <span className={styles.text}>
                         {/* <span>Hotline 24/7</span> */}

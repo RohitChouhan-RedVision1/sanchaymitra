@@ -75,14 +75,14 @@ export default function TopSuggestedFund({ performanceData, schemeName }) {
                 /> */}
                 <div>
                   <p className="font-semibold">{fund.funddes}</p>
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm text-gray-200">
                     {fund.schemeCategory}
                   </p>
                 </div>
               </div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-2 items-center text-center w-full md:w-1/2">
                 <div className="md:text-right" onClick={() => handleSelectFunds(fund)}>
-                  <p className="text-sm text-gray-400">Corpus</p>
+                  <p className="text-sm text-gray-200">Corpus</p>
                   <p className="font-medium text-gray-200">
                     ₹{fund?.Corpus} Cr
                   </p>
@@ -91,7 +91,7 @@ export default function TopSuggestedFund({ performanceData, schemeName }) {
                   {fund?.fiveyear_navEndDate &&
                     fund.fiveyear_navEndDate !== "0.00" && (
                       <div>
-                        <p className="text-sm text-gray-400">NAV</p>
+                        <p className="text-sm text-gray-200">NAV</p>
                         <p className="font-medium text-gray-200">
                           ₹{fund?.fiveyear_navEndDate}
                         </p>
@@ -99,7 +99,7 @@ export default function TopSuggestedFund({ performanceData, schemeName }) {
                     ) || (fund?.threeyear_navEndDate &&
                       fund.threeyear_navEndDate !== "0.00" && (
                         <div>
-                          <p className="text-sm text-gray-400">NAV</p>
+                          <p className="text-sm text-gray-200">NAV</p>
                           <p className="text-lg font-medium text-gray-200">
                             ₹ {fund?.threeyear_navEndDate}
                           </p>
@@ -109,7 +109,7 @@ export default function TopSuggestedFund({ performanceData, schemeName }) {
                       &&
                       fund.oneyear_navEndDate !== "0.00" && (
                         <div>
-                          <p className="text-sm text-gray-400">NAV</p>
+                          <p className="text-sm text-gray-200">NAV</p>
                           <p className="text-lg font-medium text-gray-200">
                             ₹ {fund?.oneyear_navEndDate}
                           </p>
@@ -118,7 +118,7 @@ export default function TopSuggestedFund({ performanceData, schemeName }) {
                       fund?.sixmonth_navEndDate &&
                       fund.sixmonth_navEndDate !== "0.00" && (
                         <div>
-                          <h3 className="text-sm text-gray-400">NAV</h3>
+                          <h3 className="text-sm text-gray-200">NAV</h3>
                           <p className="text-lg font-medium text-gray-200">
                             ₹ {fund?.sixmonth_navEndDate}
                           </p>
@@ -128,7 +128,7 @@ export default function TopSuggestedFund({ performanceData, schemeName }) {
                       fund?.three_month &&
                       fund.three_month !== "0.00" && (
                         <div>
-                          <h3 className="text-sm text-gray-400">NAV: 6 Month Data</h3>
+                          <h3 className="text-sm text-gray-200">NAV: 6 Month Data</h3>
                           <p className="text-lg font-medium text-gray-200">
                             ₹ {fund?.three_month}
                           </p>
@@ -138,7 +138,7 @@ export default function TopSuggestedFund({ performanceData, schemeName }) {
                       fund?.onemonth_navEndDate &&
                       fund.onemonth_navEndDate !== "0.00" && (
                         <div>
-                          <h3 className="text-sm text-gray-400">NAV: 6 Month Data</h3>
+                          <h3 className="text-sm text-gray-200">NAV: 6 Month Data</h3>
                           <p className="text-lg font-medium text-gray-200">
                             ₹ {fund?.onemonth_navEndDate}
                           </p>
@@ -148,7 +148,7 @@ export default function TopSuggestedFund({ performanceData, schemeName }) {
                       fund?.oneweek_navEndDate &&
                       fund.oneweek_navEndDate !== "0.00" && (
                         <div>
-                          <h3 className="text-sm text-gray-400">NAV: 6 Month Data</h3>
+                          <h3 className="text-sm text-gray-200">NAV: 6 Month Data</h3>
                           <p className="text-lg font-medium text-gray-200">
                             ₹ {fund?.oneweek_navEndDate}
                           </p>
@@ -203,7 +203,7 @@ export default function TopSuggestedFund({ performanceData, schemeName }) {
 
                     return (
                       <>
-                        <p className="text-sm text-gray-400">
+                        <p className="text-sm text-gray-200">
                           {label} CAGR returns
                         </p>
                         <p className="font-medium text-green-600">{value}%</p>

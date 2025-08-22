@@ -48,18 +48,18 @@
 .heroSectionArea .headingArea h1 {
   color: var(--rv-primary);
   font-family: var(--default-font);
-  font-size: var(--ztc-font-size-font-s64);
+  font-size: var(--ztc-font-size-font-s48);
   font-style: normal;
   font-weight: var(--ztc-weight-semibold);
-  line-height: 70px;
+  line-height: 48px;
   display: inline-block;
   transition: all 0.4s;
 }
 
 @media (max-width: 767px) {
   .heroSectionArea .headingArea h1 {
-    font-size: var(--ztc-font-size-font-s26);
-    line-height: 40px;
+    font-size: var(--ztc-font-size-font-s24);
+    line-height: 28px;
   }
 }
 

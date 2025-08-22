@@ -11,7 +11,7 @@ const HeroSection = () => {
                 <div class="grid lg:grid-cols-2 grid-cols-1 items-center justify-center">
                     <div>
                         <div className={styles.headingArea}>
-                            <h5 data-aos="fade-left" data-aos-duration="800">Smart Strategies. Measurable Results.</h5>
+                            <h5 data-aos="fade-left" data-aos-duration="800">Secure your future and grow with us.</h5>
                             <div class="space20"></div>
                             <h1 class="text-anime-style-1">Professional Guidance for Every Stage of Your Financial Journey</h1>
                             <div class="space20"></div>
