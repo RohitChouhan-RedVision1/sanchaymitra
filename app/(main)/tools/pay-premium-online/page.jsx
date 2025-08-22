@@ -91,7 +91,7 @@ const fetchLogos = async (categoryID) => {
               <Link href={item.logourl || "#"} key={index} target="_blank">
                 <div className="flex justify-center p-5 border text-center mb-3">
                   <img
-                    src={`${process.env.NEXT_PUBLIC_CLIENT_DATA_API}${item.logo}`}
+                    src={`${process.env.NEXT_PUBLIC_DATA_API}${item.logo}`}
                     alt={`logo-${item.logoname}`}
                     width={150}
                     height={100}

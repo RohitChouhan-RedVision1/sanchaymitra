@@ -14,7 +14,7 @@ export async function GET(request) {
 
     // If none have status true, fetch from external API
     const response = await axios.get(
-      `${process.env.NEXT_PUBLIC_DATA_API}/api/open-apis/risk-questions?apikey=${process.env.NEXT_PUBLIC_API_KEY}`
+      `${process.env.NEXT_PUBLIC_SERVER_DATA_API}/api/open-apis/risk-questions?apikey=${process.env.NEXT_PUBLIC_API_KEY}`
     );
 
     return NextResponse.json(response.data, { status: 200 });

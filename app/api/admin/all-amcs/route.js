@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 export async function GET(req, res) {
     try {
-        await ConnectDB(); const response = await axios.get(`${process.env.NEXT_PUBLIC_DATA_API}/api/open-apis/all-amc`);
+        await ConnectDB(); const response = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_DATA_API}/api/open-apis/all-amc`);
         const data = response.data;
         return NextResponse.json(data, { status: 200 });
     } catch (error) {
